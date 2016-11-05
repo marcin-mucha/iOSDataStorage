@@ -9,9 +9,21 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    let apiClient = APIClient()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        apiClient.getContent(for: "rihanna", limit: 30) {
+            contents, error in
+            if error != nil {
+                print(error)
+                return
+            }
+            for c in contents! {
+                print(c.trackName)
+            }
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -19,6 +31,8 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
 
 
 }

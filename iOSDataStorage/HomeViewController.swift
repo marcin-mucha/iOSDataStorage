@@ -8,9 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
     
     let apiClient = APIClient()
+    let contents = [Content]()
 
     override func viewDidLoad() {
         super.viewDidLoad()

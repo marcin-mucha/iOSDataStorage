@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
 class HomeViewController: UIViewController {
     
     let apiClient = APIClient()
-    let contents = [Content]()
+    var respository: ContentRepository?
+    
+    var managedObjectContext: NSManagedObjectContext!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +34,10 @@ class HomeViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func configureDataSource(repository: ContentRepository) {
+        self.respository = repository
     }
     
     

@@ -18,6 +18,7 @@ struct Content {
     let artworkImage: UIImage?
     let country: String
     let primaryGenreName: String
+    let date: Date
     
     init?(json: JSON) {
         guard let kind = json["kind"].string else {
@@ -53,5 +54,6 @@ struct Content {
             return nil
         }
         self.primaryGenreName = primaryGenreName
+        self.date = Date()
     }
 }

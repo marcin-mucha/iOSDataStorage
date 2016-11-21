@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         let urls = FileManager.default.urls( for: .documentDirectory, in: .userDomainMask)
         let documentsDirectory = urls[0]
-        let storeURL = documentsDirectory.appendingPathComponent("DataStore.sqlite")
+        let storeURL = documentsDirectory.appendingPathComponent("ContentCD.sqlite")
         do {
             let coordinator = NSPersistentStoreCoordinator(
                 managedObjectModel: model)
@@ -46,9 +46,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         cumstomizeAppearance()
         let tabBarController = window!.rootViewController as! UITabBarController
+        let repository = CoreDataRepository(managedObjectContext: managedObjectContext)
         if let tabBarViewControllers = tabBarController.viewControllers {
             let homeViewController = tabBarViewControllers[0] as! HomeViewController
-            homeViewController.managedObjectContext = managedObjectContext
+            homeViewController.repository = repository
+            let nc = tabBarViewControllers[1] as! UINavigationController
+            let contentTableViewController = nc.viewControllers[0] as! ContentTableViewController
+            contentTableViewController.repository = repository
         }
         listenForFatalCoreDataNotifications()
         return true

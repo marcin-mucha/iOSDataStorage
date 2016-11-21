@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		921C55571DE380B600EB91CB /* ContentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C55561DE380B600EB91CB /* ContentTableViewController.swift */; };
 		922DA4681DCE384C00E68CDF /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922DA4671DCE384C00E68CDF /* Content.swift */; };
 		922DA46D1DCE39F700E68CDF /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922DA46A1DCE39F700E68CDF /* Realm.framework */; };
 		922DA46E1DCE39F700E68CDF /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922DA46B1DCE39F700E68CDF /* RealmSwift.framework */; };
 		922DA46F1DCE39F700E68CDF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922DA46C1DCE39F700E68CDF /* SwiftyJSON.framework */; };
 		9254D1E91DD4D5A00083ACCE /* ContentCD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9254D1E71DD4D5A00083ACCE /* ContentCD.xcdatamodeld */; };
+		926DBF7B1DD7677B00951FEE /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926DBF7A1DD7677B00951FEE /* CoreDataRepository.swift */; };
+		926DBF7E1DD76F3F00951FEE /* NSManagedObjectContext+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926DBF7D1DD76F3F00951FEE /* NSManagedObjectContext+.swift */; };
 		9285CB971DBFCE4000A69FFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9285CB961DBFCE4000A69FFF /* AppDelegate.swift */; };
 		9285CB991DBFCE4000A69FFF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9285CB981DBFCE4000A69FFF /* HomeViewController.swift */; };
 		9285CB9C1DBFCE4000A69FFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9285CB9A1DBFCE4000A69FFF /* Main.storyboard */; };
@@ -25,11 +28,14 @@
 /* Begin PBXFileReference section */
 		1633DB06327FA4A0B3C58DF1 /* Pods-iOSDataStorage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSDataStorage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSDataStorage/Pods-iOSDataStorage.debug.xcconfig"; sourceTree = "<group>"; };
 		870FBFB7E8B8CB06E42E1000 /* Pods_iOSDataStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSDataStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		921C55561DE380B600EB91CB /* ContentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTableViewController.swift; sourceTree = "<group>"; };
 		922DA4671DCE384C00E68CDF /* Content.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		922DA46A1DCE39F700E68CDF /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "Pods/../build/Debug-iphoneos/Realm/Realm.framework"; sourceTree = "<group>"; };
 		922DA46B1DCE39F700E68CDF /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "Pods/../build/Debug-iphoneos/RealmSwift/RealmSwift.framework"; sourceTree = "<group>"; };
 		922DA46C1DCE39F700E68CDF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Pods/../build/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		9254D1E81DD4D5A00083ACCE /* ContentCD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ContentCD.xcdatamodel; sourceTree = "<group>"; };
+		926DBF7A1DD7677B00951FEE /* CoreDataRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
+		926DBF7D1DD76F3F00951FEE /* NSManagedObjectContext+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+.swift"; sourceTree = "<group>"; };
 		9285CB931DBFCE4000A69FFF /* iOSDataStorage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDataStorage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9285CB961DBFCE4000A69FFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9285CB981DBFCE4000A69FFF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -71,8 +77,17 @@
 		9254D1EA1DD4D6C70083ACCE /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				926DBF7A1DD7677B00951FEE /* CoreDataRepository.swift */,
 			);
 			name = CoreData;
+			sourceTree = "<group>";
+		};
+		926DBF7C1DD76F2200951FEE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				926DBF7D1DD76F3F00951FEE /* NSManagedObjectContext+.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		9285CB8A1DBFCE4000A69FFF = {
@@ -107,6 +122,8 @@
 				922DA4671DCE384C00E68CDF /* Content.swift */,
 				92B85FAA1DCF7F0B006D96BB /* ContentRepository.swift */,
 				9254D1E71DD4D5A00083ACCE /* ContentCD.xcdatamodeld */,
+				921C55561DE380B600EB91CB /* ContentTableViewController.swift */,
+				926DBF7C1DD76F2200951FEE /* Utils */,
 			);
 			path = iOSDataStorage;
 			sourceTree = "<group>";
@@ -150,7 +167,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Marcin Mucha";
 				TargetAttributes = {
 					9285CB921DBFCE4000A69FFF = {
@@ -246,10 +263,13 @@
 			files = (
 				9254D1E91DD4D5A00083ACCE /* ContentCD.xcdatamodeld in Sources */,
 				92B85FAB1DCF7F0B006D96BB /* ContentRepository.swift in Sources */,
+				921C55571DE380B600EB91CB /* ContentTableViewController.swift in Sources */,
 				9285CB991DBFCE4000A69FFF /* HomeViewController.swift in Sources */,
 				9285CB971DBFCE4000A69FFF /* AppDelegate.swift in Sources */,
 				9296B9151DCBA9F000DEE10D /* APIClient.swift in Sources */,
+				926DBF7E1DD76F3F00951FEE /* NSManagedObjectContext+.swift in Sources */,
 				922DA4681DCE384C00E68CDF /* Content.swift in Sources */,
+				926DBF7B1DD7677B00951FEE /* CoreDataRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

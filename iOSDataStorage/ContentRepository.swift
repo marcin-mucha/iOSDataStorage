@@ -9,9 +9,10 @@
 import Foundation
 
 protocol ContentRepository {
-    var contents: [Content] { get }
+    //var contents: [Content] { get set }
     func save(contents: [Content])
-    func delete(contents: [Content])
-    func find(query: String) -> [Content]
+    //func fetch() -> [Content]
+    //func delete(contents: [Content])
+    //func find(query: String) -> [Content]
 }
 

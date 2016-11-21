@@ -12,22 +12,14 @@ import CoreData
 class HomeViewController: UIViewController {
     
     let apiClient = APIClient()
-    var respository: ContentRepository?
+    var repository: ContentRepository?
     
-    var managedObjectContext: NSManagedObjectContext!
+    @IBOutlet weak var numberLabel: UILabel!
+    @IBOutlet weak var slider: UISlider!
+    //var managedObjectContext: NSManagedObjectContext!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        apiClient.getContent(for: "rihanna", limit: 30) {
-            contents, error in
-            if error != nil {
-                print(error)
-                return
-            }
-            for c in contents! {
-                print(c.trackName)
-            }
-        }
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -37,9 +29,34 @@ class HomeViewController: UIViewController {
     }
     
     func configureDataSource(repository: ContentRepository) {
-        self.respository = repository
+        self.repository = repository
     }
     
+    
+    
+    @IBAction func valueDidChange(_ sender: Any) {
+        let slider = sender as! UISlider
+        numberLabel.text = String(slider.value)
+    }
+    
+    @IBAction func generate(_ sender: Any) {
+        apiClient.getContent(for: "a", limit: 10) {
+            contents, error in
+            if error != nil {
+                print(error)
+                return
+            }
+            guard let contents = contents else {
+                print("Content from API is nil")
+                return
+            }
+            print("*** Pobrano dane z API ***")
+            DispatchQueue.main.async {
+                self.repository?.save(contents: contents)
+            }
+        }
+
+    }
     
 
 

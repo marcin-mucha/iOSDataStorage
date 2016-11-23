@@ -13,6 +13,7 @@
 		922DA46E1DCE39F700E68CDF /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922DA46B1DCE39F700E68CDF /* RealmSwift.framework */; };
 		922DA46F1DCE39F700E68CDF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922DA46C1DCE39F700E68CDF /* SwiftyJSON.framework */; };
 		9254D1E91DD4D5A00083ACCE /* ContentCD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9254D1E71DD4D5A00083ACCE /* ContentCD.xcdatamodeld */; };
+		926A65FF1DE49B7D0056F26F /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926A65FE1DE49B7D0056F26F /* RealmRepository.swift */; };
 		926DBF7B1DD7677B00951FEE /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926DBF7A1DD7677B00951FEE /* CoreDataRepository.swift */; };
 		926DBF7E1DD76F3F00951FEE /* NSManagedObjectContext+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926DBF7D1DD76F3F00951FEE /* NSManagedObjectContext+.swift */; };
 		9285CB971DBFCE4000A69FFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9285CB961DBFCE4000A69FFF /* AppDelegate.swift */; };
@@ -22,6 +23,7 @@
 		9285CBA11DBFCE4000A69FFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9285CB9F1DBFCE4000A69FFF /* LaunchScreen.storyboard */; };
 		9296B9151DCBA9F000DEE10D /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9296B9141DCBA9F000DEE10D /* APIClient.swift */; };
 		92B85FAB1DCF7F0B006D96BB /* ContentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B85FAA1DCF7F0B006D96BB /* ContentRepository.swift */; };
+		92CA43971DE60BDF00751755 /* ContentRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CA43961DE60BDF00751755 /* ContentRealm.swift */; };
 		A2037EEAFE97FD9768F34312 /* Pods_iOSDataStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 870FBFB7E8B8CB06E42E1000 /* Pods_iOSDataStorage.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +36,7 @@
 		922DA46B1DCE39F700E68CDF /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "Pods/../build/Debug-iphoneos/RealmSwift/RealmSwift.framework"; sourceTree = "<group>"; };
 		922DA46C1DCE39F700E68CDF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Pods/../build/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		9254D1E81DD4D5A00083ACCE /* ContentCD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ContentCD.xcdatamodel; sourceTree = "<group>"; };
+		926A65FE1DE49B7D0056F26F /* RealmRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		926DBF7A1DD7677B00951FEE /* CoreDataRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
 		926DBF7D1DD76F3F00951FEE /* NSManagedObjectContext+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+.swift"; sourceTree = "<group>"; };
 		9285CB931DBFCE4000A69FFF /* iOSDataStorage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDataStorage.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +48,7 @@
 		9285CBA21DBFCE4000A69FFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9296B9141DCBA9F000DEE10D /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		92B85FAA1DCF7F0B006D96BB /* ContentRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentRepository.swift; sourceTree = "<group>"; };
+		92CA43961DE60BDF00751755 /* ContentRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentRealm.swift; sourceTree = "<group>"; };
 		9E1EE11611BC61BD1437A3F9 /* Pods-iOSDataStorage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSDataStorage.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSDataStorage/Pods-iOSDataStorage.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,9 +81,19 @@
 		9254D1EA1DD4D6C70083ACCE /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				9254D1E71DD4D5A00083ACCE /* ContentCD.xcdatamodeld */,
 				926DBF7A1DD7677B00951FEE /* CoreDataRepository.swift */,
 			);
 			name = CoreData;
+			sourceTree = "<group>";
+		};
+		926A65FD1DE49B1F0056F26F /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				926A65FE1DE49B7D0056F26F /* RealmRepository.swift */,
+				92CA43961DE60BDF00751755 /* ContentRealm.swift */,
+			);
+			name = Realm;
 			sourceTree = "<group>";
 		};
 		926DBF7C1DD76F2200951FEE /* Utils */ = {
@@ -111,9 +125,10 @@
 		9285CB951DBFCE4000A69FFF /* iOSDataStorage */ = {
 			isa = PBXGroup;
 			children = (
+				926A65FD1DE49B1F0056F26F /* Realm */,
 				9254D1EA1DD4D6C70083ACCE /* CoreData */,
 				9285CB961DBFCE4000A69FFF /* AppDelegate.swift */,
-				9285CB981DBFCE4000A69FFF /* HomeViewController.swift */,
+				92CA43991DE6182F00751755 /* View Controllers */,
 				9285CB9A1DBFCE4000A69FFF /* Main.storyboard */,
 				9285CB9D1DBFCE4000A69FFF /* Assets.xcassets */,
 				9285CB9F1DBFCE4000A69FFF /* LaunchScreen.storyboard */,
@@ -121,11 +136,18 @@
 				9296B9141DCBA9F000DEE10D /* APIClient.swift */,
 				922DA4671DCE384C00E68CDF /* Content.swift */,
 				92B85FAA1DCF7F0B006D96BB /* ContentRepository.swift */,
-				9254D1E71DD4D5A00083ACCE /* ContentCD.xcdatamodeld */,
-				921C55561DE380B600EB91CB /* ContentTableViewController.swift */,
 				926DBF7C1DD76F2200951FEE /* Utils */,
 			);
 			path = iOSDataStorage;
+			sourceTree = "<group>";
+		};
+		92CA43991DE6182F00751755 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9285CB981DBFCE4000A69FFF /* HomeViewController.swift */,
+				921C55561DE380B600EB91CB /* ContentTableViewController.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		C4DCA6AB126D5F72A39F5973 /* Pods */ = {
@@ -263,9 +285,11 @@
 			files = (
 				9254D1E91DD4D5A00083ACCE /* ContentCD.xcdatamodeld in Sources */,
 				92B85FAB1DCF7F0B006D96BB /* ContentRepository.swift in Sources */,
+				92CA43971DE60BDF00751755 /* ContentRealm.swift in Sources */,
 				921C55571DE380B600EB91CB /* ContentTableViewController.swift in Sources */,
 				9285CB991DBFCE4000A69FFF /* HomeViewController.swift in Sources */,
 				9285CB971DBFCE4000A69FFF /* AppDelegate.swift in Sources */,
+				926A65FF1DE49B7D0056F26F /* RealmRepository.swift in Sources */,
 				9296B9151DCBA9F000DEE10D /* APIClient.swift in Sources */,
 				926DBF7E1DD76F3F00951FEE /* NSManagedObjectContext+.swift in Sources */,
 				922DA4681DCE384C00E68CDF /* Content.swift in Sources */,

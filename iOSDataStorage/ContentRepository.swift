@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ContentRepository {
-    //var contents: [Content] { get set }
+    var contents: [Content] { get set }
     func save(contents: [Content])
     //func fetch() -> [Content]
     //func delete(contents: [Content])

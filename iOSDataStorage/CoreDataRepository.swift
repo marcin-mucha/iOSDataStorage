@@ -12,31 +12,12 @@ import UIKit
 class CoreDataRepository : ContentRepository {
     var managedObjectContext: NSManagedObjectContext
     let contentsFetch = NSFetchRequest<ContentCD>(entityName: "ContentCD")
-    lazy var contents: [ContentCD] = {
-        return self.fetch()
+    lazy var contents: [Content] = {
+        let contentsCD = self.fetch()
+        return contentsCD.map {
+            Content(contentCD: $0)
+        }
     }()
-    
-//    lazy var fetchedResultsController: NSFetchedResultsController<ContentCD> = {
-//        let fetchRequest = NSFetchRequest<ContentCD>()
-//        let entity = NSEntityDescription.entity(forEntityName: "ContentCD", in: self.managedObjectContext)
-//        fetchRequest.entity = entity
-//        let sortDescriptor1 = NSSortDescriptor(key: "artistName", ascending: true)
-//        let sortDescriptor2 = NSSortDescriptor(key: "trackName", ascending: true)
-//        fetchRequest.sortDescriptors = [sortDescriptor1, sortDescriptor2]
-//        fetchRequest.fetchBatchSize = 20
-//        let fetchedResultsController = NSFetchedResultsController<ContentCD>(
-//            fetchRequest: fetchRequest,
-//            managedObjectContext: self.managedObjectContext,
-//            sectionNameKeyPath: nil,
-//            cacheName: "Contents")
-//       // fetchedResultsController.delegate = self
-//        return fetchedResultsController
-//    }()
-//    
-//    deinit {
-//        fetchedResultsController.delegate = nil
-//    }
-    
 
     init(managedObjectContext: NSManagedObjectContext) {
         self.managedObjectContext = managedObjectContext
@@ -71,5 +52,4 @@ class CoreDataRepository : ContentRepository {
             fatalError("Błąd odczytu z Core Data")
         }
     }
-    
 }

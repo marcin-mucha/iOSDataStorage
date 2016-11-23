@@ -11,7 +11,7 @@ import UIKit
 
 class ContentTableViewController: UIViewController {
     
-    var repository: CoreDataRepository?
+    var repository: ContentRepository?
     
     override func viewDidLoad() {
         super.viewDidLoad()

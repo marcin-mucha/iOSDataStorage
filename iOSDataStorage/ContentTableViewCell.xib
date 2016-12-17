@@ -18,43 +18,45 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="32I-Hr-6N3">
-                        <rect key="frame" x="8" y="6" width="94" height="73"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="94" id="HJP-1P-wMe"/>
-                        </constraints>
-                    </imageView>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NHb-rq-4tb">
-                        <rect key="frame" x="110.5" y="8" width="100.5" height="72"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZFF-yt-dZg">
+                        <rect key="frame" x="8" y="6" width="205" height="73"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(artistName)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lbe-SX-ueL">
-                                <rect key="frame" x="0.0" y="0.0" width="100.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(trackName)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4BP-sA-ujn">
-                                <rect key="frame" x="0.0" y="26" width="100.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(genreName)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rS-y3-QcE">
-                                <rect key="frame" x="0.0" y="51.5" width="100.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="32I-Hr-6N3">
+                                <rect key="frame" x="0.0" y="0.0" width="94" height="73"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="94" id="HJP-1P-wMe"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NHb-rq-4tb">
+                                <rect key="frame" x="104" y="0.0" width="100.5" height="73"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(artistName)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lbe-SX-ueL">
+                                        <rect key="frame" x="0.0" y="0.0" width="100.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(trackName)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4BP-sA-ujn">
+                                        <rect key="frame" x="0.0" y="26.5" width="100.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(genreName)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rS-y3-QcE">
+                                        <rect key="frame" x="0.0" y="52.5" width="100.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="32I-Hr-6N3" secondAttribute="bottom" constant="8" id="49C-1z-T9F"/>
-                    <constraint firstAttribute="trailing" secondItem="NHb-rq-4tb" secondAttribute="trailing" constant="109" id="GKo-pD-4G4"/>
-                    <constraint firstItem="32I-Hr-6N3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="SGp-r6-YFv"/>
-                    <constraint firstItem="32I-Hr-6N3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="U4h-AR-Qow"/>
-                    <constraint firstItem="NHb-rq-4tb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="hQZ-Hu-xOU"/>
-                    <constraint firstAttribute="bottom" secondItem="NHb-rq-4tb" secondAttribute="bottom" constant="7" id="utI-Q0-sB2"/>
+                    <constraint firstAttribute="bottom" secondItem="ZFF-yt-dZg" secondAttribute="bottom" constant="8" id="4Xb-0K-bba"/>
+                    <constraint firstItem="ZFF-yt-dZg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="U49-Ms-DhK"/>
+                    <constraint firstItem="ZFF-yt-dZg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="XeW-7Q-QCQ"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

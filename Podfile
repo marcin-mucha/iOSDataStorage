@@ -8,6 +8,7 @@ target 'iOSDataStorage' do
   # Pods for iOSDataStorage
   pod 'SwiftyJSON'
   pod 'RealmSwift'
+  #pod 'couchbase-lite-ios', '~> 1.3.1'
 
 end
 

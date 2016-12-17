@@ -40,7 +40,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func generate(_ sender: Any) {
-        apiClient.getContent(for: "a", limit: 10) {
+        apiClient.getContent(for: "rihanaa", limit: 10) {
             contents, error in
             if error != nil {
                 print(error)

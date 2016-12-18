@@ -10,9 +10,11 @@ import Foundation
 
 protocol ContentRepository {
     var contents: [Content] { get set }
+    var dataStorageName: String { get }
     func save(contents: [Content])
     //func fetch() -> [Content]
     //func delete(contents: [Content])
     //func find(query: String) -> [Content]
 }
+
 

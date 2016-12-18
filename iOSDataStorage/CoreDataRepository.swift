@@ -18,7 +18,7 @@ class CoreDataRepository : ContentRepository {
             Content(contentCD: $0)
         }
     }()
-
+    let dataStorageName = "Core Data"
     init(managedObjectContext: NSManagedObjectContext) {
         self.managedObjectContext = managedObjectContext
     }

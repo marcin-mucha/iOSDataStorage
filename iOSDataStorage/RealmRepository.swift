@@ -17,6 +17,7 @@ class RealmRepository: ContentRepository {
             Content(contentRealm: $0)
         }
     }()
+    let dataStorageName = "Realm"
     func save(contents: [Content]) {
         DispatchQueue(label: "Realm").async {
             print("*** Rozpoczęto zapisywanie ***")

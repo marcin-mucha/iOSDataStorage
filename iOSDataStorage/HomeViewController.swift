@@ -55,31 +55,25 @@ class HomeViewController: UIViewController {
     @IBAction func generate(_ sender: Any) {
         print("** Pobieranie \(slider.value * 200) rekordów rozpoczęte. ***")
         var tempContents = [Content]()
-        for _ in 1...Int(slider.value) {
-            apiClient.getContent(for: "rihanaa", limit: 200) {
-                [weak self] contents, error in
-                if error != nil {
-                    print(error.debugDescription)
-                    return
-                }
-                guard let contents = contents else {
-                    print("Content from API is nil")
-                    return
-                }
-                self?.serialQueue.sync {
-                    tempContents.append(contentsOf: contents)
-                }
+        apiClient.getContent(for: "rihanaa", limit: 200) {
+            [weak self] contents, error in
+            guard let safeSelf = self else { return }
+            if error != nil {
+                print(error.debugDescription)
+                return
             }
+            guard let contents = contents else {
+                print("Content from API is nil")
+                return
+            }
+            for _ in 1...Int(safeSelf.slider.value) {
+                tempContents.append(contentsOf: contents)
+            }
+            DispatchQueue.main.sync {
+                safeSelf.repository?.save(contents: tempContents)
+            }
+            
         }
-        print("*** Zapis rozpoczęty \(tempContents.count) rekordów ***")
-        let start = DispatchTime.now()
-        DispatchQueue.main.async {
-            self.repository?.save(contents: tempContents)
-        }
-        let end = DispatchTime.now()
-        let diff = end.uptimeNanoseconds - start.uptimeNanoseconds
-        print("*** Zapis zakończony: \(diff)***")
-
 
     }
     

@@ -24,6 +24,7 @@ class CoreDataRepository : ContentRepository {
     }
     func save(contents: [Content]) {
         print("*** Rozpoczęto zapisywanie ***")
+        let start = DispatchTime.now()
         for content in contents {
             let contentCD = NSEntityDescription.insertNewObject(forEntityName: "ContentCD", into: managedObjectContext) as! ContentCD
             contentCD.artistName = content.artistName
@@ -41,7 +42,10 @@ class CoreDataRepository : ContentRepository {
             managedObjectContext.safeSave()
 
         }
-        print("*** Zapisano ***")
+        let end = DispatchTime.now()
+        let diff = end.uptimeNanoseconds - start.uptimeNanoseconds
+        print("*** Zapis zakończony: \(diff)***")
+
     }
     
     func fetch() -> [ContentCD] {

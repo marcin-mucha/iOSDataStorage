@@ -19,7 +19,7 @@ func fatalCoreData(error: Error) {
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    //var database: CBLDatabase!
+    var database: CBLDatabase!
     
     lazy var managedObjectContext: NSManagedObjectContext = {
         guard let modelURL = Bundle.main.url(forResource: "ContentCD", withExtension: "momd") else {
@@ -46,7 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        cumstomizeAppearance()
         let tabBarController = window!.rootViewController as! UITabBarController
         let repository = CoreDataRepository(managedObjectContext: managedObjectContext)
         //let repository = RealmRepository()
@@ -85,15 +84,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return rootViewController
         }
     }
-    
-    func cumstomizeAppearance() {
-        UINavigationBar.appearance().barTintColor = UIColor.black
-        UINavigationBar.appearance().titleTextAttributes = [ NSForegroundColorAttributeName: UIColor.white ]
-        UITabBar.appearance().barTintColor = UIColor.black
-        let tintColor = UIColor(red: 255/255.0, green: 238/255.0, blue: 136/255.0, alpha: 1.0)
-        UITabBar.appearance().tintColor = tintColor
-    }
-    
-    
 }
 

@@ -17,7 +17,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var storageNameLabel: UILabel!
-    //var managedObjectContext: NSManagedObjectContext!
+
     let serialQueue = DispatchQueue(label: "serial")
     let timer = Timer()
 
@@ -39,23 +39,17 @@ class HomeViewController: UIViewController {
     func configureDataSource(repository: ContentRepository) {
         self.repository = repository
     }
-//    
-//    @IBAction func valueChanged(sender: UISlider) {
-//        let sliderValue = round(sender.value)
-//        sender.setValue(sliderValue, animated: true)
-//        delegate?.didChange(Int(sliderValue))
-//    }
     
     @IBAction func valueDidChange(_ sender: Any) {
         let slider = sender as! UISlider
         slider.value = round(slider.value)
-        numberLabel.text = String(slider.value * 200)
+        numberLabel.text = String(Int(slider.value) * 200)
     }
     
     @IBAction func generate(_ sender: Any) {
         print("** Pobieranie \(slider.value * 200) rekordów rozpoczęte. ***")
         var tempContents = [Content]()
-        apiClient.getContent(for: "rihanaa", limit: 200) {
+        apiClient.getContent(for: "pinkfloyd", limit: 200) {
             [weak self] contents, error in
             guard let safeSelf = self else { return }
             if error != nil {

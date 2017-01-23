@@ -25,6 +25,7 @@
 		926A65FF1DE49B7D0056F26F /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926A65FE1DE49B7D0056F26F /* RealmRepository.swift */; };
 		926DBF7B1DD7677B00951FEE /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926DBF7A1DD7677B00951FEE /* CoreDataRepository.swift */; };
 		926DBF7E1DD76F3F00951FEE /* NSManagedObjectContext+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926DBF7D1DD76F3F00951FEE /* NSManagedObjectContext+.swift */; };
+		9281B2321E362FCB00EE627B /* CouchbaseRespository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9281B2311E362FCB00EE627B /* CouchbaseRespository.swift */; };
 		9285CB971DBFCE4000A69FFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9285CB961DBFCE4000A69FFF /* AppDelegate.swift */; };
 		9285CB991DBFCE4000A69FFF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9285CB981DBFCE4000A69FFF /* HomeViewController.swift */; };
 		9285CB9C1DBFCE4000A69FFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9285CB9A1DBFCE4000A69FFF /* Main.storyboard */; };
@@ -58,6 +59,7 @@
 		926A65FE1DE49B7D0056F26F /* RealmRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		926DBF7A1DD7677B00951FEE /* CoreDataRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
 		926DBF7D1DD76F3F00951FEE /* NSManagedObjectContext+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+.swift"; sourceTree = "<group>"; };
+		9281B2311E362FCB00EE627B /* CouchbaseRespository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouchbaseRespository.swift; sourceTree = "<group>"; };
 		9285CB931DBFCE4000A69FFF /* iOSDataStorage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDataStorage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9285CB961DBFCE4000A69FFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9285CB981DBFCE4000A69FFF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 		9289D3921DECD24F0044F985 /* Couchbase */ = {
 			isa = PBXGroup;
 			children = (
+				9281B2311E362FCB00EE627B /* CouchbaseRespository.swift */,
 			);
 			name = Couchbase;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				926DBF7E1DD76F3F00951FEE /* NSManagedObjectContext+.swift in Sources */,
 				922DA4681DCE384C00E68CDF /* Content.swift in Sources */,
 				926DBF7B1DD7677B00951FEE /* CoreDataRepository.swift in Sources */,
+				9281B2321E362FCB00EE627B /* CouchbaseRespository.swift in Sources */,
 				9240B4751E059CEC00AB6179 /* ContentTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

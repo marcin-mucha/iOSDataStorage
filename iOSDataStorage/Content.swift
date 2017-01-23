@@ -78,9 +78,7 @@ struct Content {
         
         self.collectionName = json["collectionName"].string
         
-        guard let artworkImageString = json["artworkUrl60"].string else {
-            return nil
-        }
+        let artworkImageString = json["artworkUrl60"].string ?? ""
         
         self.artworkImage = UIImage(contentsOfFile: artworkImageString)
         
@@ -95,4 +93,43 @@ struct Content {
         self.primaryGenreName = primaryGenreName
         self.date = Date()
     }
+    
+    init?(properties: [String: Any]?) {
+        guard let kind = properties?["kind"] as? String else {
+            return nil
+        }
+        self.kind = kind
+        
+        guard let trackName = properties?["trackName"] as? String else {
+            return nil
+        }
+        self.trackName = trackName
+        
+        guard let artistName = properties?["artistName"] as? String else {
+            return nil
+        }
+        self.artistName = artistName
+        
+        self.collectionName = properties?["collectionName"] as? String
+        
+        guard let country = properties?["country"] as? String else {
+            return nil
+        }
+        self.country = country
+        
+        guard let primaryGenreName = properties?["primaryGenreName"] as? String else {
+            return nil
+        }
+        self.primaryGenreName = primaryGenreName
+        guard let dateString = properties?["date"] as? String else {
+            return nil
+        }
+        guard let date = dateFormatter.date(from: dateString) else {
+            return nil
+        }
+        self.date = date
+        self.artworkImage = nil
+    }
 }
+
+let dateFormatter = DateFormatter()

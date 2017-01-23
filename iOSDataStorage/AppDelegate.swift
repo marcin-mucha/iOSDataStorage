@@ -19,7 +19,6 @@ func fatalCoreData(error: Error) {
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    var database: CBLDatabase!
     
     lazy var managedObjectContext: NSManagedObjectContext = {
         guard let modelURL = Bundle.main.url(forResource: "ContentCD", withExtension: "momd") else {
@@ -47,8 +46,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let tabBarController = window!.rootViewController as! UITabBarController
-        let repository = CoreDataRepository(managedObjectContext: managedObjectContext)
+        //let repository = CoreDataRepository(managedObjectContext: managedObjectContext)
         //let repository = RealmRepository()
+        let repository = CouchbaseRepository()
         if let tabBarViewControllers = tabBarController.viewControllers {
             let homeViewController = tabBarViewControllers[0] as! HomeViewController
             homeViewController.repository = repository

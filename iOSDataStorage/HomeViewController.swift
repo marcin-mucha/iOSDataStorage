@@ -51,6 +51,7 @@ class HomeViewController: UIViewController {
         var tempContents = [Content]()
         apiClient.getContent(for: "pinkfloyd", limit: 200) {
             [weak self] contents, error in
+            print("*** Pobieranie zakończeone")
             guard let safeSelf = self else { return }
             if error != nil {
                 print(error.debugDescription)

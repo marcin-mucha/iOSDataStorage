@@ -13,7 +13,7 @@ protocol ContentRepository {
     var dataStorageName: String { get }
     func save(contents: [Content])
     //func fetch() -> [Content]
-    //func delete(contents: [Content])
+    func deleteAll()
     //func find(query: String) -> [Content]
 }
 

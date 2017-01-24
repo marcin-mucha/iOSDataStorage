@@ -15,10 +15,11 @@ struct Content {
     let trackName: String
     let artistName: String
     let collectionName: String?
-    let artworkImage: UIImage?
+    var artworkImage: UIImage? = nil
     let country: String
     let primaryGenreName: String
     let date: Date
+    var imageURL: URL? = nil
     
     init(contentCD: ContentCD) {
         guard let kind = contentCD.kind,
@@ -80,7 +81,7 @@ struct Content {
         
         let artworkImageString = json["artworkUrl60"].string ?? ""
         
-        self.artworkImage = UIImage(contentsOfFile: artworkImageString)
+        self.imageURL = URL(string: artworkImageString)
         
         guard let country = json["country"].string else {
             return nil
@@ -130,6 +131,7 @@ struct Content {
         self.date = date
         self.artworkImage = nil
     }
+    
 }
 
 let dateFormatter = DateFormatter()

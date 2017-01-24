@@ -48,6 +48,13 @@ class CoreDataRepository : ContentRepository {
 
     }
     
+    func deleteAll() {
+        let allObjects = fetch()
+        for obj in allObjects {
+            managedObjectContext.delete(obj)
+        }
+    }
+    
     func fetch() -> [ContentCD] {
         do {
             let fetched = try managedObjectContext.fetch(contentsFetch)

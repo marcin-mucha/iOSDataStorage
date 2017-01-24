@@ -13,22 +13,11 @@ let dbManager = CBLManager.sharedInstance()
 class CouchbaseRepository: ContentRepository {
     
     let dataStorageName = "Couchbase Lite"
-    lazy var contents: [Content] = {
-        let query = self.database?.createAllDocumentsQuery()
-        do {
-            guard let results: CBLQueryEnumerator = try query?.run() else {
-                return []
-            }
-            return (UInt(0)..<results.count).flatMap {
-                let document = results.row(at: $0).document
-                let properties = document?.properties
-                return Content(properties: properties)
-            }
-        } catch {
-            print("*** Error runing query")
+    var contents: [Content] {
+        return self.documents.flatMap {
+            return Content(properties: $0.properties)
         }
-        return []
-    }()
+    }
     
     var documents: [CBLDocument] {
         let query = self.database?.createAllDocumentsQuery()
@@ -72,7 +61,14 @@ class CouchbaseRepository: ContentRepository {
     }
     
     func deleteAll() {
-        database.delet
+        for document in documents {
+            do {
+                try document.delete()
+            } catch {
+                print("*** Cannot delete document")
+            }
+            
+        }
     }
     
     

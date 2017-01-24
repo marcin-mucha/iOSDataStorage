@@ -46,6 +46,11 @@ class HomeViewController: UIViewController {
         numberLabel.text = String(Int(slider.value) * 200)
     }
     
+    @IBAction func deleteAll(_ sender: Any) {
+        self.repository?.deleteAll()
+    }
+    
+    
     @IBAction func generate(_ sender: Any) {
         print("** Pobieranie \(slider.value * 200) rekordów rozpoczęte. ***")
         var tempContents = [Content]()

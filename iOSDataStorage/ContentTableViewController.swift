@@ -12,7 +12,7 @@ import UIKit
 class ContentTableViewController: UIViewController {
     
     var repository: ContentRepository?
-    
+    var contents: [Content]?
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -23,7 +23,7 @@ class ContentTableViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let fetched = repository?.contents
+        contents = repository?.contents
         tableView.reloadData()
         
     }
@@ -50,9 +50,9 @@ extension ContentTableViewController : UITableViewDelegate {
 
 extension ContentTableViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let repository = repository {
-            print("\(repository.contents.count) rekordów.")
-            return repository.contents.count
+        if let contents = contents {
+            print("\(contents.count) rekordów.")
+            return contents.count
         } else {
             return 0
         }

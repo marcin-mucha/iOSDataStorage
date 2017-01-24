@@ -22,6 +22,7 @@
 		9240B4751E059CEC00AB6179 /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9240B4731E059CEC00AB6179 /* ContentTableViewCell.swift */; };
 		9240B4761E059CEC00AB6179 /* ContentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9240B4741E059CEC00AB6179 /* ContentTableViewCell.xib */; };
 		9254D1E91DD4D5A00083ACCE /* ContentCD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9254D1E71DD4D5A00083ACCE /* ContentCD.xcdatamodeld */; };
+		9263E9DC1E37CC580056AAC1 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263E9DB1E37CC580056AAC1 /* UIImage+.swift */; };
 		926A65FF1DE49B7D0056F26F /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926A65FE1DE49B7D0056F26F /* RealmRepository.swift */; };
 		926DBF7B1DD7677B00951FEE /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926DBF7A1DD7677B00951FEE /* CoreDataRepository.swift */; };
 		926DBF7E1DD76F3F00951FEE /* NSManagedObjectContext+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926DBF7D1DD76F3F00951FEE /* NSManagedObjectContext+.swift */; };
@@ -56,6 +57,7 @@
 		9240B4731E059CEC00AB6179 /* ContentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTableViewCell.swift; sourceTree = "<group>"; };
 		9240B4741E059CEC00AB6179 /* ContentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContentTableViewCell.xib; sourceTree = "<group>"; };
 		9254D1E81DD4D5A00083ACCE /* ContentCD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ContentCD.xcdatamodel; sourceTree = "<group>"; };
+		9263E9DB1E37CC580056AAC1 /* UIImage+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		926A65FE1DE49B7D0056F26F /* RealmRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		926DBF7A1DD7677B00951FEE /* CoreDataRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
 		926DBF7D1DD76F3F00951FEE /* NSManagedObjectContext+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+.swift"; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				926DBF7D1DD76F3F00951FEE /* NSManagedObjectContext+.swift */,
+				9263E9DB1E37CC580056AAC1 /* UIImage+.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9254D1E91DD4D5A00083ACCE /* ContentCD.xcdatamodeld in Sources */,
+				9263E9DC1E37CC580056AAC1 /* UIImage+.swift in Sources */,
 				92B85FAB1DCF7F0B006D96BB /* ContentRepository.swift in Sources */,
 				92CA43971DE60BDF00751755 /* ContentRealm.swift in Sources */,
 				921C55571DE380B600EB91CB /* ContentTableViewController.swift in Sources */,

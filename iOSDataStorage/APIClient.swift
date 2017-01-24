@@ -49,6 +49,14 @@ class APIClient {
                     completion(nil, APIClientError.mappingError)
                     return
                 }
+                for var content in contents {
+                    guard let url = content.imageURL else {
+                        continue
+                    }
+                    self?.downloadPhotoFrom(url: url, completion: { (image) in
+                        content.artworkImage = image
+                    })
+                }
                 completion(contents, nil)
             } else {
                 completion(nil, APIClientError.httpStatusError)
@@ -90,6 +98,22 @@ class APIClient {
         }
         return contents
 
+    }
+    
+    func downloadPhotoFrom(url: URL, completion: @escaping (UIImage?) -> ()) {
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else {
+                    completion(nil)
+                    return
+            }
+            completion(image)
+            return
+            }.resume()
     }
 
     

@@ -10,13 +10,13 @@ import Foundation
 import RealmSwift
 
 class RealmRepository: ContentRepository {
-    lazy var contents: [Content] = {
+    var contents: [Content] {
         let realm = try! Realm()
         let contentsRealm = realm.objects(ContentRealm.self)
         return contentsRealm.map {
             Content(contentRealm: $0)
         }
-    }()
+    }
     let dataStorageName = "Realm"
     func save(contents: [Content]) {
         DispatchQueue(label: "Realm").async {
@@ -44,6 +44,12 @@ class RealmRepository: ContentRepository {
                 
             }
         }
-        
+    }
+    
+    func deleteAll() {
+        let realm = try! Realm()
+        realm.beginWrite()
+        realm.deleteAll()
+        try! realm.commitWrite()
     }
 }

@@ -50,7 +50,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let repository = RealmRepository()
         //let repository = CouchbaseRepository()
         if let tabBarViewControllers = tabBarController.viewControllers {
-            let homeViewController = tabBarViewControllers[0] as! HomeViewController
+            let nc0 = tabBarViewControllers[0] as! UINavigationController
+            let homeViewController = nc0.viewControllers[0] as! HomeViewController
             homeViewController.repository = repository
             let nc = tabBarViewControllers[1] as! UINavigationController
             let contentTableViewController = nc.viewControllers[0] as! ContentTableViewController

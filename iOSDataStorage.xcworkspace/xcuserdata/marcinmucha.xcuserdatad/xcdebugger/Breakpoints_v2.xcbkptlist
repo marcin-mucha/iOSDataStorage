@@ -82,11 +82,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSDataStorage/CouchbaseRespository.swift"
-            timestampString = "506975348.683233"
+            timestampString = "507127180.893812"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "deleteAll()"
             landmarkType = "7">
          </BreakpointContent>

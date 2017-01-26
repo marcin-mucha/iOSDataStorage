@@ -11,17 +11,25 @@ import RealmSwift
 
 class RealmRepository: ContentRepository {
     var contents: [Content] {
+        let start = DispatchTime.now()
         let realm = try! Realm()
         let contentsRealm = realm.objects(ContentRealm.self)
-        return contentsRealm.map {
+        let mappedContents: [Content] = contentsRealm.map {
             Content(contentRealm: $0)
         }
+        let end = DispatchTime.now()
+        let diff = end.uptimeNanoseconds - start.uptimeNanoseconds
+        let miliSeconds = diff / 1000000
+        print("*** Odczyt zakończony: \(miliSeconds)***")
+        return mappedContents
     }
     let dataStorageName = "Realm"
     func save(contents: [Content]) {
         DispatchQueue(label: "Realm").async {
             print("*** Rozpoczęto zapisywanie ***")
+            
             autoreleasepool {
+                let start = DispatchTime.now()
                 let realm = try! Realm()
                 realm.beginWrite()
                 for content in contents {
@@ -41,8 +49,13 @@ class RealmRepository: ContentRepository {
                     realm.add(contentObj)
                 }
                 try! realm.commitWrite()
-                
+                let end = DispatchTime.now()
+                let diff = end.uptimeNanoseconds - start.uptimeNanoseconds
+                let miliSeconds = diff / 1000000
+                print("*** Zapis zakończony: \(miliSeconds) ms ***")
+
             }
+            
         }
     }
     

@@ -14,9 +14,15 @@ class CouchbaseRepository: ContentRepository {
     
     let dataStorageName = "Couchbase Lite"
     var contents: [Content] {
-        return self.documents.flatMap {
+        let start = DispatchTime.now()
+        let mappedContents = self.documents.flatMap {
             return Content(properties: $0.properties)
         }
+        let end = DispatchTime.now()
+        let diff = end.uptimeNanoseconds - start.uptimeNanoseconds
+        let miliSeconds = diff / 1000000
+        print("*** Odczyt zakończony: \(miliSeconds)***")
+        return mappedContents
     }
     
     var documents: [CBLDocument] {
@@ -40,6 +46,7 @@ class CouchbaseRepository: ContentRepository {
         configureDatabase()
     }
     func save(contents: [Content]) {
+        let start = DispatchTime.now()
         for content in contents {
             let properties = [
                 "kind": content.kind,
@@ -58,6 +65,11 @@ class CouchbaseRepository: ContentRepository {
             }
             addPhotoAttachment(document: document, image: content.artworkImage)
         }
+        let end = DispatchTime.now()
+        let diff = end.uptimeNanoseconds - start.uptimeNanoseconds
+        let miliSeconds = diff / 1000000
+        print("*** Zapis zakończony: \(miliSeconds)***")
+
     }
     
     func deleteAll() {

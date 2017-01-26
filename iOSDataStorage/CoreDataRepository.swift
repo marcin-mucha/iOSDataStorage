@@ -12,12 +12,19 @@ import UIKit
 class CoreDataRepository : ContentRepository {
     var managedObjectContext: NSManagedObjectContext
     let contentsFetch = NSFetchRequest<ContentCD>(entityName: "ContentCD")
-    lazy var contents: [Content] = {
+    var contents: [Content] {
+        let start = DispatchTime.now()
         let contentsCD = self.fetch()
-        return contentsCD.map {
+        let mappedContents = contentsCD.map {
             Content(contentCD: $0)
         }
-    }()
+        let end = DispatchTime.now()
+        let diff = end.uptimeNanoseconds - start.uptimeNanoseconds
+        let miliSeconds = diff / 1000000
+        print("*** Odczyt zakończony: \(miliSeconds)***")
+        return mappedContents
+
+    }
     let dataStorageName = "Core Data"
     init(managedObjectContext: NSManagedObjectContext) {
         self.managedObjectContext = managedObjectContext
@@ -44,7 +51,8 @@ class CoreDataRepository : ContentRepository {
         }
         let end = DispatchTime.now()
         let diff = end.uptimeNanoseconds - start.uptimeNanoseconds
-        print("*** Zapis zakończony: \(diff)***")
+        let miliSeconds = diff / 1000000
+        print("*** Zapis zakończony: \(miliSeconds)***")
 
     }
     

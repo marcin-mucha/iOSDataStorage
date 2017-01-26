@@ -101,7 +101,7 @@ struct Content {
         self.date = Date()
     }
     
-    init?(properties: [String: Any]?) {
+    init?(properties: [String: Any]?, image: UIImage?) {
         guard let kind = properties?["kind"] as? String else {
             return nil
         }
@@ -135,7 +135,7 @@ struct Content {
             return nil
         }
         self.date = date
-        self.artworkImage = nil
+        self.artworkImage = image
     }
     
 }

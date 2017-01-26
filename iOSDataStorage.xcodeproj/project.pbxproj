@@ -13,6 +13,10 @@
 		921F49FC1E0444B400D88B6D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 921F49FB1E0444B400D88B6D /* SystemConfiguration.framework */; };
 		921F49FE1E0444C100D88B6D /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 921F49FD1E0444C100D88B6D /* libsqlite3.tbd */; };
 		921F4A001E0444CF00D88B6D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 921F49FF1E0444CF00D88B6D /* libz.tbd */; };
+		9220F09B1E3A2D46009ECBB8 /* OperationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220F09A1E3A2D46009ECBB8 /* OperationsViewController.swift */; };
+		9220F09E1E3A345A009ECBB8 /* PersistanceOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220F09D1E3A345A009ECBB8 /* PersistanceOperation.swift */; };
+		9220F0A31E3A6017009ECBB8 /* OperationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220F0A11E3A6017009ECBB8 /* OperationsTableViewCell.swift */; };
+		9220F0A41E3A6017009ECBB8 /* OperationsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9220F0A21E3A6017009ECBB8 /* OperationsTableViewCell.xib */; };
 		922DA4681DCE384C00E68CDF /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922DA4671DCE384C00E68CDF /* Content.swift */; };
 		922DA46D1DCE39F700E68CDF /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922DA46A1DCE39F700E68CDF /* Realm.framework */; };
 		922DA46E1DCE39F700E68CDF /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922DA46B1DCE39F700E68CDF /* RealmSwift.framework */; };
@@ -47,6 +51,10 @@
 		921F49FB1E0444B400D88B6D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		921F49FD1E0444C100D88B6D /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		921F49FF1E0444CF00D88B6D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		9220F09A1E3A2D46009ECBB8 /* OperationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationsViewController.swift; sourceTree = "<group>"; };
+		9220F09D1E3A345A009ECBB8 /* PersistanceOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistanceOperation.swift; sourceTree = "<group>"; };
+		9220F0A11E3A6017009ECBB8 /* OperationsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationsTableViewCell.swift; sourceTree = "<group>"; };
+		9220F0A21E3A6017009ECBB8 /* OperationsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OperationsTableViewCell.xib; sourceTree = "<group>"; };
 		922DA4671DCE384C00E68CDF /* Content.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		922DA46A1DCE39F700E68CDF /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "Pods/../build/Debug-iphoneos/Realm/Realm.framework"; sourceTree = "<group>"; };
 		922DA46B1DCE39F700E68CDF /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "Pods/../build/Debug-iphoneos/RealmSwift/RealmSwift.framework"; sourceTree = "<group>"; };
@@ -97,6 +105,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9220F09C1E3A32DF009ECBB8 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				9220F09A1E3A2D46009ECBB8 /* OperationsViewController.swift */,
+				9220F09D1E3A345A009ECBB8 /* PersistanceOperation.swift */,
+				9220F0A11E3A6017009ECBB8 /* OperationsTableViewCell.swift */,
+				9220F0A21E3A6017009ECBB8 /* OperationsTableViewCell.xib */,
+			);
+			name = Operations;
+			sourceTree = "<group>";
+		};
 		922DA4691DCE39F700E68CDF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +231,7 @@
 			children = (
 				9240B4711E05995B00AB6179 /* Home */,
 				9240B4721E05996A00AB6179 /* Content */,
+				9220F09C1E3A32DF009ECBB8 /* Operations */,
 			);
 			name = Screens;
 			sourceTree = "<group>";
@@ -289,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9285CBA11DBFCE4000A69FFF /* LaunchScreen.storyboard in Resources */,
+				9220F0A41E3A6017009ECBB8 /* OperationsTableViewCell.xib in Resources */,
 				9285CB9E1DBFCE4000A69FFF /* Assets.xcassets in Resources */,
 				9285CB9C1DBFCE4000A69FFF /* Main.storyboard in Resources */,
 				9240B4761E059CEC00AB6179 /* ContentTableViewCell.xib in Resources */,
@@ -357,11 +378,14 @@
 				921C55571DE380B600EB91CB /* ContentTableViewController.swift in Sources */,
 				9285CB991DBFCE4000A69FFF /* HomeViewController.swift in Sources */,
 				9285CB971DBFCE4000A69FFF /* AppDelegate.swift in Sources */,
+				9220F09E1E3A345A009ECBB8 /* PersistanceOperation.swift in Sources */,
+				9220F0A31E3A6017009ECBB8 /* OperationsTableViewCell.swift in Sources */,
 				926A65FF1DE49B7D0056F26F /* RealmRepository.swift in Sources */,
 				9296B9151DCBA9F000DEE10D /* APIClient.swift in Sources */,
 				926DBF7E1DD76F3F00951FEE /* NSManagedObjectContext+.swift in Sources */,
 				922DA4681DCE384C00E68CDF /* Content.swift in Sources */,
 				926DBF7B1DD7677B00951FEE /* CoreDataRepository.swift in Sources */,
+				9220F09B1E3A2D46009ECBB8 /* OperationsViewController.swift in Sources */,
 				9281B2321E362FCB00EE627B /* CouchbaseRespository.swift in Sources */,
 				9240B4751E059CEC00AB6179 /* ContentTableViewCell.swift in Sources */,
 			);

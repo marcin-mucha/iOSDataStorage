@@ -15,13 +15,21 @@ class CouchbaseRepository: ContentRepository {
     let dataStorageName = "Couchbase Lite"
     var contents: [Content] {
         let start = DispatchTime.now()
-        let mappedContents = self.documents.flatMap {
-            return Content(properties: $0.properties)
+        let mappedContents: [Content] = self.documents.flatMap {
+            document in
+            let rev = document.currentRevision
+            let att = rev?.attachmentNamed("photo")
+            guard let attData = att?.content else {
+                return Content(properties: document.properties, image: nil)
+            }
+            let image = UIImage(data: attData)
+            return Content(properties: document.properties, image: image)
         }
         let end = DispatchTime.now()
         let diff = end.uptimeNanoseconds - start.uptimeNanoseconds
         let miliSeconds = diff / 1000000
         print("*** Odczyt zakończony: \(miliSeconds)***")
+        saveOperationDetails(duration: Int(miliSeconds), recordNumber: mappedContents.count, operation: OperationType.Read, storage: StorageType.Couchbase)
         return mappedContents
     }
     
@@ -82,7 +90,6 @@ class CouchbaseRepository: ContentRepository {
             
         }
     }
-    
     
     func configureDatabase() {
         do {

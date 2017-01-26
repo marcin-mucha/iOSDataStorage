@@ -22,6 +22,7 @@ class CoreDataRepository : ContentRepository {
         let diff = end.uptimeNanoseconds - start.uptimeNanoseconds
         let miliSeconds = diff / 1000000
         print("*** Odczyt zakończony: \(miliSeconds)***")
+        saveOperationDetails(duration: Int(miliSeconds), recordNumber: mappedContents.count, operation: OperationType.Read, storage: StorageType.CoreData)
         return mappedContents
 
     }

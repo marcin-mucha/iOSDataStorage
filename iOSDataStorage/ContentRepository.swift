@@ -7,14 +7,24 @@
 //
 
 import Foundation
+import RealmSwift
 
 protocol ContentRepository {
     var contents: [Content] { get }
     var dataStorageName: String { get }
     func save(contents: [Content])
-    //func fetch() -> [Content]
     func deleteAll()
+    func saveOperationDetails(duration: Int, recordNumber: Int, operation: OperationType, storage: StorageType)
     //func find(query: String) -> [Content]
 }
 
+extension ContentRepository {
+    func saveOperationDetails(duration: Int, recordNumber: Int, operation: OperationType, storage: StorageType) {
+        let operation = PersistanceOperation.contruct(duration: duration, recordNumber: recordNumber, operation: operation.rawValue, storage: storage.rawValue)
+        let realm = try! Realm()
+        realm.beginWrite()
+        realm.add(operation)
+        try! realm.commitWrite()
+    }
+}
 

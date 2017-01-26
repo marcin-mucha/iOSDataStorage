@@ -66,4 +66,12 @@ extension ContentTableViewController : UITableViewDataSource {
         cell.configure(with: content)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if let contents = contents {
+            return "\(contents.count) rekordów."
+        } else {
+            return "Brak rekordów."
+        }
+    }
 }

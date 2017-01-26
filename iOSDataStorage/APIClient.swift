@@ -49,14 +49,6 @@ class APIClient {
                     completion(nil, APIClientError.mappingError)
                     return
                 }
-                for var content in contents {
-                    guard let url = content.imageURL else {
-                        continue
-                    }
-                    self?.downloadPhotoFrom(url: url, completion: { (image) in
-                        content.artworkImage = image
-                    })
-                }
                 completion(contents, nil)
             } else {
                 completion(nil, APIClientError.httpStatusError)

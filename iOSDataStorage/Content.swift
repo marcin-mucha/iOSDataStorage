@@ -81,8 +81,14 @@ struct Content {
         
         let artworkImageString = json["artworkUrl60"].string ?? ""
         
-        self.imageURL = URL(string: artworkImageString)
-        
+        if let imageURL = URL(string: artworkImageString) {
+            do {
+                let data = try Data(contentsOf: imageURL)
+                 self.artworkImage = UIImage(data: data)
+            } catch {
+                print("Cannot convert Data from URL photo")
+            }
+        }
         guard let country = json["country"].string else {
             return nil
         }

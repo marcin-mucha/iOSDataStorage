@@ -75,7 +75,13 @@
                             <constraint firstAttribute="trailing" secondItem="jO9-F9-h4P" secondAttribute="trailing" id="ryp-Q0-uq4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Wykonane operacje" id="cgc-No-3ol"/>
+                    <navigationItem key="navigationItem" title="Wykonane operacje" id="cgc-No-3ol">
+                        <barButtonItem key="rightBarButtonItem" title="Wykresy" id="uP9-s5-TUO">
+                            <connections>
+                                <segue destination="SbE-rG-kGn" kind="presentation" id="C5C-y9-qIY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="jO9-F9-h4P" id="2lJ-19-c0Y"/>
                     </connections>
@@ -83,6 +89,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="agB-Du-Ney" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="653.60000000000002" y="1270.6146926536733"/>
+        </scene>
+        <!--Graph View Controller-->
+        <scene sceneID="0fm-j4-bN1">
+            <objects>
+                <viewController modalTransitionStyle="flipHorizontal" id="3K1-hr-l8M" customClass="GraphViewController" customModule="iOSDataStorage" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qAH-eg-fdY"/>
+                        <viewControllerLayoutGuide type="bottom" id="eQL-aX-yEa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dO5-DL-uq8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CVQ-pG-hgm">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Amq-MF-29b" customClass="LineChartView" customModule="Charts">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="301.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gnN-uP-tlQ" customClass="BarChartView" customModule="Charts">
+                                        <rect key="frame" x="0.0" y="301.5" width="375" height="301.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="gnN-uP-tlQ" secondAttribute="trailing" id="4mD-0W-2cP"/>
+                                    <constraint firstItem="gnN-uP-tlQ" firstAttribute="leading" secondItem="CVQ-pG-hgm" secondAttribute="leading" id="C6e-IG-9cr"/>
+                                    <constraint firstItem="Amq-MF-29b" firstAttribute="top" secondItem="CVQ-pG-hgm" secondAttribute="top" id="FeR-th-17d"/>
+                                    <constraint firstAttribute="bottom" secondItem="gnN-uP-tlQ" secondAttribute="bottom" id="KOJ-ek-Bok"/>
+                                    <constraint firstItem="gnN-uP-tlQ" firstAttribute="top" secondItem="Amq-MF-29b" secondAttribute="bottom" id="Njr-Hz-kvc"/>
+                                    <constraint firstItem="gnN-uP-tlQ" firstAttribute="top" secondItem="Amq-MF-29b" secondAttribute="bottom" id="UbR-Jo-4Cw"/>
+                                    <constraint firstItem="Amq-MF-29b" firstAttribute="leading" secondItem="CVQ-pG-hgm" secondAttribute="leading" id="eNq-aY-eNH"/>
+                                    <constraint firstAttribute="trailing" secondItem="Amq-MF-29b" secondAttribute="trailing" id="sGE-Bt-aJv"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="CVQ-pG-hgm" secondAttribute="trailing" id="3GV-OB-pA5"/>
+                            <constraint firstItem="CVQ-pG-hgm" firstAttribute="leading" secondItem="dO5-DL-uq8" secondAttribute="leading" id="7gf-YV-Qww"/>
+                            <constraint firstItem="CVQ-pG-hgm" firstAttribute="top" secondItem="qAH-eg-fdY" secondAttribute="bottom" id="Ei9-78-WUK"/>
+                            <constraint firstItem="eQL-aX-yEa" firstAttribute="top" secondItem="CVQ-pG-hgm" secondAttribute="bottom" id="cYq-sv-QsB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="5Tx-iD-WLO">
+                        <barButtonItem key="leftBarButtonItem" title="Gotowe" id="H11-cp-14d">
+                            <connections>
+                                <action selector="done:" destination="3K1-hr-l8M" id="lj3-Ud-jed"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="bottomChartView" destination="gnN-uP-tlQ" id="NNK-aE-UWJ"/>
+                        <outlet property="upperChartView" destination="Amq-MF-29b" id="SKM-D0-2Pk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pe4-XQ-fMI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2548" y="1270.6146926536733"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="IdH-V7-jYB">
@@ -126,7 +193,7 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcQ-CN-bXU">
-                                <rect key="frame" x="173" y="253" width="31" height="21"/>
+                                <rect key="frame" x="172" y="253" width="31" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -261,6 +328,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w4t-ay-prQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-295" y="1271"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pS4-Ha-9x1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SbE-rG-kGn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xRI-GW-18O">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3K1-hr-l8M" kind="relationship" relationship="rootViewController" id="FfQ-p0-XhC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rxl-7K-Rhw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1608.8" y="1270.6146926536733"/>
         </scene>
     </scenes>
 </document>

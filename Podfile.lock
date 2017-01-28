@@ -1,4 +1,7 @@
 PODS:
+  - Charts (3.0.1):
+    - Charts/Core (= 3.0.1)
+  - Charts/Core (3.0.1)
   - couchbase-lite-ios (1.3.1):
     - couchbase-lite-ios/SQLite (= 1.3.1)
   - couchbase-lite-ios/SQLite (1.3.1)
@@ -10,16 +13,18 @@ PODS:
   - SwiftyJSON (3.1.1)
 
 DEPENDENCIES:
+  - Charts
   - couchbase-lite-ios
   - RealmSwift
   - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Charts: 0e84f4418e87dad6a9edde221fba37ebb51d3ba7
   couchbase-lite-ios: e4672e9c623e31584602c0300c299c363acebb05
   Realm: 0f5a194af0b7e6158b83db41b4ee1a00be7ddf1a
   RealmSwift: 0eb5070d851cba7c66e841ca756d83609dc78bc8
   SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
-PODFILE CHECKSUM: c0041860212074ff301beb486673ecc01f4feb2e
+PODFILE CHECKSUM: e9683d3031d0485035e08001c4aef1aeffa2db2f
 
 COCOAPODS: 1.0.1

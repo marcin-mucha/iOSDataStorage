@@ -9,6 +9,7 @@ target 'iOSDataStorage' do
   pod 'SwiftyJSON'
   pod 'RealmSwift'
   pod 'couchbase-lite-ios' #, '~> 1.3.1'
+  pod 'Charts'
 
 end
 

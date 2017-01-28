@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Charts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-iOSDataStorage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>7DA785CE7FEEC76F8393E41BAF425474</key>
+		<key>04B859848E4F96B96803B2B947903099</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>845C1DF5236102C26BC91223111088E3</key>
+		<key>118CDA4E0EA1F1A7269E092449F30C8A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C1D5C96E0B4241E2742F2C7F802C7EEB</key>
+		<key>870E7061403019BE3E9FA0A90AE9DA44</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D18A5B4B4021019ADDE8DC616F2F6000</key>
+		<key>C2448D8A522C942C99E78A7FDE839F08</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F307B842FF76B2DE6C55DB67C0885325</key>
 		<dict>
 			<key>primary</key>
 			<true/>

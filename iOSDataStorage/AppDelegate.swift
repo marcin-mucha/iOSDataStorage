@@ -46,8 +46,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let tabBarController = window!.rootViewController as! UITabBarController
+        let repository = determineStorageType()
         //let repository = CoreDataRepository(managedObjectContext: managedObjectContext)
-        let repository = RealmRepository()
+        //let repository = RealmRepository()
         //let repository = CouchbaseRepository()
         if let tabBarViewControllers = tabBarController.viewControllers {
             let nc0 = tabBarViewControllers[0] as! UINavigationController
@@ -60,6 +61,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         listenForFatalCoreDataNotifications()
         return true
 
+    }
+    
+    func determineStorageType() -> ContentRepository {
+        let defaults = UserDefaults.standard
+        var repository: ContentRepository
+        if let storageType = defaults.string(forKey: "storage") {
+            switch storageType {
+            case StorageType.CoreData.rawValue:
+                repository = CoreDataRepository(managedObjectContext: managedObjectContext)
+            case StorageType.Realm.rawValue:
+                repository = RealmRepository()
+            case StorageType.Couchbase.rawValue:
+                repository = CouchbaseRepository()
+            default:
+                defaults.set(StorageType.CoreData.rawValue, forKey: "storage")
+                repository = CoreDataRepository(managedObjectContext: managedObjectContext)
+            }
+        } else {
+            defaults.set(StorageType.CoreData.rawValue, forKey: "storage")
+            repository = CoreDataRepository(managedObjectContext: managedObjectContext)
+        }
+        return repository
     }
     
     func listenForFatalCoreDataNotifications() {

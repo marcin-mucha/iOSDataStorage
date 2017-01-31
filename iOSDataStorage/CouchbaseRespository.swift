@@ -29,7 +29,9 @@ class CouchbaseRepository: ContentRepository {
         let diff = end.uptimeNanoseconds - start.uptimeNanoseconds
         let miliSeconds = diff / 1000000
         print("*** Odczyt zakończony: \(miliSeconds)***")
-        saveOperationDetails(duration: Int(miliSeconds), recordNumber: mappedContents.count, operation: OperationType.Read, storage: StorageType.Couchbase)
+        if mappedContents.count > 0 {
+            saveOperationDetails(duration: Int(miliSeconds), recordNumber: mappedContents.count, operation: OperationType.Read, storage: StorageType.Couchbase)
+        }
         return mappedContents
     }
     
@@ -77,6 +79,10 @@ class CouchbaseRepository: ContentRepository {
         let diff = end.uptimeNanoseconds - start.uptimeNanoseconds
         let miliSeconds = diff / 1000000
         print("*** Zapis zakończony: \(miliSeconds)***")
+        if contents.count > 0 {
+            saveOperationDetails(duration: Int(miliSeconds), recordNumber: contents.count, operation: OperationType.Write, storage: StorageType.Couchbase)
+            
+        }
 
     }
     

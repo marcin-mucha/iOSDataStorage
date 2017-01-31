@@ -13,21 +13,21 @@ import RealmSwift
 class GraphViewController: UIViewController {
 
     @IBOutlet weak var upperChartView: LineChartView!
-    @IBOutlet weak var bottomChartView: BarChartView!
-    
+    @IBOutlet weak var bottomChartView: LineChartView!
     var persitanceOperations: [PersistanceOperation] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         persitanceOperations = fetchOperationsFromRealm()
-        upperChartView.chartDescription?.text = "Zapis"
-        bottomChartView.chartDescription?.text = "Odczyt"
+        upperChartView.chartDescription?.text = "Odczyt"
+        bottomChartView.chartDescription?.text = "Zapis"
         upperChartView.noDataText = "You need to provide data for the chart."
         upperChartView.xAxis.labelPosition = .bottom
         bottomChartView.xAxis.labelPosition = .bottom
         upperChartView.drawGridBackgroundEnabled = true
         bottomChartView.drawGridBackgroundEnabled = true
         setChart(lineChartView: upperChartView, operationType: .Read)
+        //setChart(lineChartView: bottomChartView, operationType: .Write)
         // Do any additional setup after loading the view.
     }
 
@@ -42,18 +42,23 @@ class GraphViewController: UIViewController {
     
 
     func setChart(lineChartView: LineChartView, operationType: OperationType) {
-        let dataSetCD = configureDataSet(operations: persitanceOperations.filter({ $0.storageType == .CoreData && $0.operationType == operationType}), description: "Core Data")
-        let dataSetRealm = configureDataSet(operations: persitanceOperations.filter({ $0.storageType == .Realm && $0.operationType == operationType}), description: "Realm")
-        let dataSetCB = configureDataSet(operations: persitanceOperations.filter({ $0.storageType == .CoreData && $0.operationType == operationType}), description: "Couchbase Lite")
-        let cartData = LineChartData(dataSets: [dataSetCD, dataSetRealm, dataSetCB])
+        let dataSetCD = configureDataSet(operations: persitanceOperations.filter({ $0.storageType == .CoreData && $0.operationType == operationType}), description: "Core Data", color: UIColor.blue)
+        let dataSetRealm = configureDataSet(operations: persitanceOperations.filter({ $0.storageType == .Realm && $0.operationType == operationType}), description: "Realm", color: UIColor.red)
+        let dataSetCB = configureDataSet(operations: persitanceOperations.filter({ $0.storageType == .Couchbase && $0.operationType == operationType}), description: "Couchbase Lite", color: UIColor.green)
+        let cartData = LineChartData(dataSets: [dataSetCD, dataSetRealm, dataSetCB].flatMap({ $0 }))
         lineChartView.data = cartData
     }
     
-    func configureDataSet(operations: [PersistanceOperation], description: String) -> LineChartDataSet {
+    func configureDataSet(operations: [PersistanceOperation], description: String, color: UIColor) -> LineChartDataSet? {
+        guard operations.count > 0 else {
+            return nil
+        }
         let dataEntries = operations.map { operation in
             return ChartDataEntry(x: Double(operation.recordNumber), y: Double(operation.duration))
         }
-        return LineChartDataSet(values: dataEntries, label: description)
+        let dataSet = LineChartDataSet(values: dataEntries, label: description)
+        dataSet.colors = [color]
+        return dataSet
     }
     
     func fetchOperationsFromRealm() -> [PersistanceOperation] {

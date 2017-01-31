@@ -22,7 +22,10 @@ class CoreDataRepository : ContentRepository {
         let diff = end.uptimeNanoseconds - start.uptimeNanoseconds
         let miliSeconds = diff / 1000000
         print("*** Odczyt zakończony: \(miliSeconds)***")
-        saveOperationDetails(duration: Int(miliSeconds), recordNumber: mappedContents.count, operation: OperationType.Read, storage: StorageType.CoreData)
+        if mappedContents.count > 0 {
+            saveOperationDetails(duration: Int(miliSeconds), recordNumber: mappedContents.count, operation: OperationType.Read, storage: StorageType.CoreData)
+
+        }
         return mappedContents
 
     }
@@ -54,6 +57,11 @@ class CoreDataRepository : ContentRepository {
         let diff = end.uptimeNanoseconds - start.uptimeNanoseconds
         let miliSeconds = diff / 1000000
         print("*** Zapis zakończony: \(miliSeconds)***")
+        if contents.count > 0 {
+            saveOperationDetails(duration: Int(miliSeconds), recordNumber: contents.count, operation: OperationType.Write, storage: StorageType.CoreData)
+            
+        }
+
 
     }
     
@@ -61,6 +69,7 @@ class CoreDataRepository : ContentRepository {
         let allObjects = fetch()
         for obj in allObjects {
             managedObjectContext.delete(obj)
+            managedObjectContext.safeSave()
         }
     }
     

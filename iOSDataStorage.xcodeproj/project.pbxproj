@@ -23,6 +23,7 @@
 		922DA46F1DCE39F700E68CDF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922DA46C1DCE39F700E68CDF /* SwiftyJSON.framework */; };
 		923FE7F51E3CDA470075E8A4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923FE7F41E3CDA470075E8A4 /* HomeViewController.swift */; };
 		923FE7F71E3CDBB70075E8A4 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923FE7F61E3CDBB70075E8A4 /* GraphViewController.swift */; };
+		923FE7FA1E3D03270075E8A4 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923FE7F91E3D03270075E8A4 /* SettingsTableViewController.swift */; };
 		9240B46E1E0591A700AB6179 /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9240B46D1E0591A700AB6179 /* CouchbaseLite.framework */; };
 		9240B4701E05928700AB6179 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9240B46F1E05928700AB6179 /* libc++.tbd */; };
 		9240B4751E059CEC00AB6179 /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9240B4731E059CEC00AB6179 /* ContentTableViewCell.swift */; };
@@ -38,6 +39,7 @@
 		9285CB9E1DBFCE4000A69FFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9285CB9D1DBFCE4000A69FFF /* Assets.xcassets */; };
 		9285CBA11DBFCE4000A69FFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9285CB9F1DBFCE4000A69FFF /* LaunchScreen.storyboard */; };
 		9296B9151DCBA9F000DEE10D /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9296B9141DCBA9F000DEE10D /* APIClient.swift */; };
+		92A221671E40F47A007A57A1 /* StorageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A221661E40F47A007A57A1 /* StorageCell.swift */; };
 		92B85FAB1DCF7F0B006D96BB /* ContentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B85FAA1DCF7F0B006D96BB /* ContentRepository.swift */; };
 		92CA43971DE60BDF00751755 /* ContentRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CA43961DE60BDF00751755 /* ContentRealm.swift */; };
 		A2037EEAFE97FD9768F34312 /* Pods_iOSDataStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 870FBFB7E8B8CB06E42E1000 /* Pods_iOSDataStorage.framework */; };
@@ -62,6 +64,7 @@
 		922DA46C1DCE39F700E68CDF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Pods/../build/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		923FE7F41E3CDA470075E8A4 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		923FE7F61E3CDBB70075E8A4 /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
+		923FE7F91E3D03270075E8A4 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		9240B46A1E058E5500AB6179 /* iOSDataStorage-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSDataStorage-Bridging-Header.h"; sourceTree = "<group>"; };
 		9240B46D1E0591A700AB6179 /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CouchbaseLite.framework; sourceTree = "<group>"; };
 		9240B46F1E05928700AB6179 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -80,6 +83,7 @@
 		9285CBA01DBFCE4000A69FFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9285CBA21DBFCE4000A69FFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9296B9141DCBA9F000DEE10D /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		92A221661E40F47A007A57A1 /* StorageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageCell.swift; sourceTree = "<group>"; };
 		92B85FAA1DCF7F0B006D96BB /* ContentRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentRepository.swift; sourceTree = "<group>"; };
 		92CA43961DE60BDF00751755 /* ContentRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentRealm.swift; sourceTree = "<group>"; };
 		9E1EE11611BC61BD1437A3F9 /* Pods-iOSDataStorage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSDataStorage.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSDataStorage/Pods-iOSDataStorage.release.xcconfig"; sourceTree = "<group>"; };
@@ -142,6 +146,15 @@
 				923FE7F61E3CDBB70075E8A4 /* GraphViewController.swift */,
 			);
 			name = Graph;
+			sourceTree = "<group>";
+		};
+		923FE7FB1E3D03320075E8A4 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				923FE7F91E3D03270075E8A4 /* SettingsTableViewController.swift */,
+				92A221661E40F47A007A57A1 /* StorageCell.swift */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		9240B4711E05995B00AB6179 /* Home */ = {
@@ -224,6 +237,7 @@
 				92B85FAA1DCF7F0B006D96BB /* ContentRepository.swift */,
 				926DBF7C1DD76F2200951FEE /* Utils */,
 				9240B46A1E058E5500AB6179 /* iOSDataStorage-Bridging-Header.h */,
+				923FE7FB1E3D03320075E8A4 /* Settings */,
 			);
 			path = iOSDataStorage;
 			sourceTree = "<group>";
@@ -395,6 +409,8 @@
 				9296B9151DCBA9F000DEE10D /* APIClient.swift in Sources */,
 				926DBF7E1DD76F3F00951FEE /* NSManagedObjectContext+.swift in Sources */,
 				923FE7F71E3CDBB70075E8A4 /* GraphViewController.swift in Sources */,
+				92A221671E40F47A007A57A1 /* StorageCell.swift in Sources */,
+				923FE7FA1E3D03270075E8A4 /* SettingsTableViewController.swift in Sources */,
 				922DA4681DCE384C00E68CDF /* Content.swift in Sources */,
 				926DBF7B1DD7677B00951FEE /* CoreDataRepository.swift in Sources */,
 				9220F09B1E3A2D46009ECBB8 /* OperationsViewController.swift in Sources */,

@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.storageNotification(notification:)), name: notificationName, object: nil)
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -75,6 +76,14 @@ class HomeViewController: UIViewController {
             
         }
 
+    }
+    
+    func storageNotification(notification: Notification) {
+        guard let repository = notification.userInfo?["storage"] as? ContentRepository else {
+            return
+        }
+        self.repository = repository
+        
     }
     
 

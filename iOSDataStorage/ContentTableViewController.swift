@@ -18,6 +18,7 @@ class ContentTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
+        NotificationCenter.default.addObserver(self, selector: #selector(ContentTableViewController.storageNotification(notification:)), name: notificationName, object: nil)
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -51,7 +52,7 @@ extension ContentTableViewController : UITableViewDelegate {
 extension ContentTableViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let contents = contents {
-            print("\(contents.count) rekordów.")
+            print("\(contents.count) rekordów (\(repository?.dataStorageName)).")
             return contents.count
         } else {
             return 0
@@ -77,5 +78,14 @@ extension ContentTableViewController : UITableViewDataSource {
         } else {
             return "Brak rekordów."
         }
+    }
+    
+    func storageNotification(notification: Notification) {
+        guard let repository = notification.userInfo?["storage"] as? ContentRepository else {
+            return
+        }
+        self.repository = repository
+        contents = repository.contents
+        
     }
 }

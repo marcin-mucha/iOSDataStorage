@@ -21,7 +21,10 @@ class RealmRepository: ContentRepository {
         let diff = end.uptimeNanoseconds - start.uptimeNanoseconds
         let miliSeconds = diff / 1000000
         print("*** Odczyt zakończony: \(miliSeconds)***")
-        saveOperationDetails(duration: Int(miliSeconds), recordNumber: mappedContents.count, operation: OperationType.Read, storage: StorageType.Realm)
+        if mappedContents.count > 0 {
+            saveOperationDetails(duration: Int(miliSeconds), recordNumber: mappedContents.count, operation: OperationType.Read, storage: StorageType.Realm)
+            
+        }
         return mappedContents
     }
     let dataStorageName = "Realm"
@@ -54,6 +57,11 @@ class RealmRepository: ContentRepository {
                 let diff = end.uptimeNanoseconds - start.uptimeNanoseconds
                 let miliSeconds = diff / 1000000
                 print("*** Zapis zakończony: \(miliSeconds) ms ***")
+                print("*** Zapis zakończony: \(miliSeconds)***")
+                if contents.count > 0 {
+                    self.saveOperationDetails(duration: Int(miliSeconds), recordNumber: contents.count, operation: OperationType.Write, storage: StorageType.Realm)
+                    
+                }
 
             }
             

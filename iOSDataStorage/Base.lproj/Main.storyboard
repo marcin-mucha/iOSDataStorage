@@ -109,7 +109,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="301.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gnN-uP-tlQ" customClass="BarChartView" customModule="Charts">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gnN-uP-tlQ" customClass="LineChartView" customModule="Charts">
                                         <rect key="frame" x="0.0" y="301.5" width="375" height="301.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
@@ -143,7 +143,7 @@
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
-                        <outlet property="bottomChartView" destination="gnN-uP-tlQ" id="NNK-aE-UWJ"/>
+                        <outlet property="bottomChartView" destination="gnN-uP-tlQ" id="D1S-OL-kcB"/>
                         <outlet property="upperChartView" destination="Amq-MF-29b" id="SKM-D0-2Pk"/>
                     </connections>
                 </viewController>
@@ -261,7 +261,13 @@
                             <constraint firstItem="gxp-bo-clL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xyH-kK-m1i"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="iOS Data Storage Project" id="hBb-r1-QPk"/>
+                    <navigationItem key="navigationItem" title="iOS Data Storage Project" id="hBb-r1-QPk">
+                        <barButtonItem key="leftBarButtonItem" title="Opcje" id="ndm-3n-rqT">
+                            <connections>
+                                <segue destination="fF8-G2-2Kn" kind="show" id="eun-Rx-Agx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="numberLabel" destination="gcQ-CN-bXU" id="SGG-rJ-agA"/>
                         <outlet property="slider" destination="xKJ-22-h8K" id="V9U-LG-B0V"/>
@@ -271,6 +277,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="644" y="-176.76161919040482"/>
+        </scene>
+        <!--Settings Table View Controller-->
+        <scene sceneID="Pj8-Zv-8v3">
+            <objects>
+                <tableViewController id="fF8-G2-2Kn" customClass="SettingsTableViewController" customModule="iOSDataStorage" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="dew-G1-Eto">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StorageCell" id="Bxk-rq-zko" customClass="StorageCell" customModule="iOSDataStorage" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bxk-rq-zko" id="7CB-Q9-QcD">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHy-SR-KJo">
+                                            <rect key="frame" x="8" y="11" width="289" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="xHy-SR-KJo" secondAttribute="trailing" constant="70" id="Ece-67-OUX"/>
+                                        <constraint firstItem="xHy-SR-KJo" firstAttribute="top" secondItem="7CB-Q9-QcD" secondAttribute="topMargin" constant="3" id="fxW-2k-1H9"/>
+                                        <constraint firstItem="xHy-SR-KJo" firstAttribute="leading" secondItem="7CB-Q9-QcD" secondAttribute="leadingMargin" id="iIC-dv-lnV"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="xHy-SR-KJo" secondAttribute="bottom" constant="3.5" id="uKk-Wz-1Gv"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="storageNameLabel" destination="xHy-SR-KJo" id="pXC-FS-5ES"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="fF8-G2-2Kn" id="w0r-aB-nvJ"/>
+                            <outlet property="delegate" destination="fF8-G2-2Kn" id="XS8-Xl-eD7"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="uqJ-zh-MkD"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Gp-v7-4c2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1701.5999999999999" y="-143.47826086956522"/>
         </scene>
         <!--Zawartość-->
         <scene sceneID="GR6-wZ-Gnv">

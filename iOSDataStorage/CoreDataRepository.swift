@@ -65,12 +65,13 @@ class CoreDataRepository : ContentRepository {
 
     }
     
-    func deleteAll() {
+    func deleteAll(completion: @escaping ()->()) {
         let allObjects = fetch()
         for obj in allObjects {
             managedObjectContext.delete(obj)
             managedObjectContext.safeSave()
         }
+        completion()
     }
     
     func fetch() -> [ContentCD] {

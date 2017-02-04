@@ -60,7 +60,14 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func deleteAll(_ sender: Any) {
-        self.repository?.deleteAll()
+        acitivityIndicator.startAnimating()
+        self.repository?.deleteAll() {
+            DispatchQueue.main.async { [weak self] in
+                self?.acitivityIndicator.stopAnimating()
+                self?.hudMessage(message: "Usunięto")
+            }
+
+        }
     }
     
     
@@ -87,7 +94,7 @@ class HomeViewController: UIViewController {
                 safeSelf.repository?.save(contents: tempContents) {
                     DispatchQueue.main.async {
                         self?.acitivityIndicator.stopAnimating()
-                        self?.hudMessage()
+                        self?.hudMessage(message: "Zapisano!")
                     }
                 }
             }
@@ -103,9 +110,9 @@ class HomeViewController: UIViewController {
         
     }
     
-    func hudMessage() {
+    func hudMessage(message: String) {
         let hud = HudView.hud(in: (navigationController?.view)!, animated: true)
-        hud.text = "Zapisano"
+        hud.text = message
         let delayInSeconds = 0.6
         DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) {
             hud.removeFromSuperview()

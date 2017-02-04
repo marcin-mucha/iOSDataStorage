@@ -68,10 +68,11 @@ class RealmRepository: ContentRepository {
         }
     }
     
-    func deleteAll() {
+    func deleteAll(completion: @escaping ()->()) {
         let realm = try! Realm()
         realm.beginWrite()
-        realm.deleteAll()
+        realm.delete(realm.objects(ContentRealm.self))
         try! realm.commitWrite()
+        completion()
     }
 }

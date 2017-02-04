@@ -27,7 +27,7 @@ class GraphViewController: UIViewController {
         upperChartView.drawGridBackgroundEnabled = true
         bottomChartView.drawGridBackgroundEnabled = true
         setChart(lineChartView: upperChartView, operationType: .Read)
-        //setChart(lineChartView: bottomChartView, operationType: .Write)
+        setChart(lineChartView: bottomChartView, operationType: .Write)
         // Do any additional setup after loading the view.
     }
 

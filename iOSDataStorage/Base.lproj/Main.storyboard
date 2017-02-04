@@ -353,7 +353,9 @@
         <scene sceneID="GR6-wZ-Gnv">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ykp-y2-3vG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Zawartość" id="U2P-bm-GLP"/>
+                    <tabBarItem key="tabBarItem" title="Zawartość" id="U2P-bm-GLP">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-15"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aDy-dg-9Ny">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -372,7 +374,9 @@
         <scene sceneID="aSE-vL-OLk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z65-zv-dBa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Generuj" id="6ME-dL-Txd"/>
+                    <tabBarItem key="tabBarItem" title="Generuj" id="6ME-dL-Txd">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-15"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OM1-0v-96m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -391,7 +395,9 @@
         <scene sceneID="VP9-x0-P8g">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="udz-b0-WO6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Operacje" id="w5Y-Xf-zjE"/>
+                    <tabBarItem key="tabBarItem" title="Operacje" id="w5Y-Xf-zjE">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-15"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lu7-Vw-lEG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

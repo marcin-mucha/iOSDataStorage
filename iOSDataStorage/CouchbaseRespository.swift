@@ -86,15 +86,15 @@ class CouchbaseRepository: ContentRepository {
 
     }
     
-    func deleteAll() {
+    func deleteAll(completion: @escaping ()->()) {
         for document in documents {
             do {
                 try document.delete()
             } catch {
                 print("*** Cannot delete document")
             }
-            
         }
+        completion()
     }
     
     func configureDatabase() {

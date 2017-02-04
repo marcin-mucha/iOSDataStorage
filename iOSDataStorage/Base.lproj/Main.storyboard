@@ -197,7 +197,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="nZJ-wR-CvK">
-                                <rect key="frame" x="36" y="475" width="303" height="93"/>
+                                <rect key="frame" x="36" y="418" width="303" height="150"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5H-pH-3qc">
                                         <rect key="frame" x="61.5" y="0.0" width="180" height="36"/>
@@ -205,13 +205,21 @@
                                             <constraint firstAttribute="width" constant="180" id="cYG-cc-777"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Pobierz i zapisz"/>
+                                        <state key="normal" title="Pobierz"/>
                                         <connections>
                                             <action selector="generate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2e6-Nh-tkN"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ldi-Tx-Oy7">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZf-7H-7Vs" userLabel="Zapisz">
                                         <rect key="frame" x="61.5" y="57" width="180" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Zapisz"/>
+                                        <connections>
+                                            <action selector="saveData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jyh-ZE-Q7I"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ldi-Tx-Oy7">
+                                        <rect key="frame" x="61.5" y="114" width="180" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Usuń wszystkie"/>
                                         <connections>
@@ -221,6 +229,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="k5H-pH-3qc" firstAttribute="width" secondItem="Ldi-Tx-Oy7" secondAttribute="width" id="d5i-XZ-sek"/>
+                                    <constraint firstItem="k5H-pH-3qc" firstAttribute="width" secondItem="IZf-7H-7Vs" secondAttribute="width" id="jB6-bW-4Ne"/>
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="200" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afV-0A-GTk">
@@ -257,7 +266,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="yFG-Rn-syW">
-                                <rect key="frame" x="167" y="386" width="40" height="40"/>
+                                <rect key="frame" x="167" y="329" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="2bU-wx-tOo"/>
                                     <constraint firstAttribute="width" constant="40" id="9KJ-Rw-YZb"/>
@@ -294,6 +303,7 @@
                         <outlet property="button" destination="k5H-pH-3qc" id="N84-lX-Izx"/>
                         <outlet property="deleteButton" destination="Ldi-Tx-Oy7" id="asZ-Kh-h2q"/>
                         <outlet property="numberLabel" destination="gcQ-CN-bXU" id="SGG-rJ-agA"/>
+                        <outlet property="saveButton" destination="IZf-7H-7Vs" id="Aza-ZN-6Ts"/>
                         <outlet property="slider" destination="xKJ-22-h8K" id="V9U-LG-B0V"/>
                         <outlet property="storageNameLabel" destination="2HV-8E-LJ4" id="9kC-y0-DZ0"/>
                     </connections>

@@ -13,11 +13,13 @@ class HomeViewController: UIViewController {
     
     let apiClient = APIClient()
     var repository: ContentRepository?
+    var apiContents: [Content] = []
     
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var storageNameLabel: UILabel!
     @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var acitivityIndicator: UIActivityIndicatorView!
     
@@ -46,7 +48,7 @@ class HomeViewController: UIViewController {
     }
     
     func configureButtons() {
-        [button, deleteButton].forEach({ but in
+        [button, deleteButton, saveButton].forEach({ but in
             but?.layer.borderWidth = 1.0
             but?.layer.cornerRadius = 5.0
             but?.layer.borderColor = UIColor.blue.cgColor
@@ -74,11 +76,9 @@ class HomeViewController: UIViewController {
     @IBAction func generate(_ sender: Any) {
         acitivityIndicator.startAnimating()
         print("** Pobieranie \(slider.value * 200) rekordów rozpoczęte. ***")
-        var tempContents = [Content]()
         apiClient.getContent(for: "pinkfloyd", limit: 200) {
             [weak self] contents, error in
             print("*** Pobieranie zakończeone")
-            guard let safeSelf = self else { return }
             if error != nil {
                 print(error.debugDescription)
                 return
@@ -87,19 +87,28 @@ class HomeViewController: UIViewController {
                 print("Content from API is nil")
                 return
             }
-            for _ in 1...Int(safeSelf.slider.value) {
-                tempContents.append(contentsOf: contents)
+            self?.apiContents = contents
+            DispatchQueue.main.async {
+                self?.acitivityIndicator.stopAnimating()
+                self?.hudMessage(message: "Pobrano!")
             }
-            DispatchQueue.main.sync {
-                safeSelf.repository?.save(contents: tempContents) {
-                    DispatchQueue.main.async {
-                        self?.acitivityIndicator.stopAnimating()
-                        self?.hudMessage(message: "Zapisano!")
-                    }
-                }
+
+        }
+    }
+
+    @IBAction func saveData(_ sender: Any) {
+        acitivityIndicator.startAnimating()
+        var tempContents: [Content] = []
+        for _ in 1...Int(slider.value) {
+            tempContents.append(contentsOf: apiContents)
+        }
+        repository?.save(contents: tempContents) { [weak self] in
+            DispatchQueue.main.async {
+                tempContents.removeAll()
+                self?.acitivityIndicator.stopAnimating()
+                self?.hudMessage(message: "Zapisano!")
             }
         }
-
     }
     
     func storageNotification(notification: Notification) {

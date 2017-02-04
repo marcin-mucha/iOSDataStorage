@@ -14,8 +14,9 @@ protocol ContentRepository {
     var dataStorageName: String { get }
     func save(contents: [Content])
     func deleteAll()
-    func saveOperationDetails(duration: Int, recordNumber: Int, operation: OperationType, storage: StorageType)
-    //func find(query: String) -> [Content]
+    func saveOperationDetails(duration: Int, recordNumber: Int,
+                              operation: OperationType, storage: StorageType)
+
 }
 
 extension ContentRepository {

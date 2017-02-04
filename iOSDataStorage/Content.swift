@@ -20,7 +20,7 @@ struct Content {
     let primaryGenreName: String
     let date: Date
     var imageURL: URL? = nil
-    
+
     init(contentCD: ContentCD) {
         guard let kind = contentCD.kind,
             let trackName = contentCD.trackName,

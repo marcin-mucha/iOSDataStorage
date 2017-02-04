@@ -55,7 +55,7 @@ class CouchbaseRepository: ContentRepository {
     init() {
         configureDatabase()
     }
-    func save(contents: [Content]) {
+    func save(contents: [Content], completion: @escaping ()->()) {
         let start = DispatchTime.now()
         for content in contents {
             let properties = [
@@ -81,8 +81,8 @@ class CouchbaseRepository: ContentRepository {
         print("*** Zapis zakończony: \(miliSeconds)***")
         if contents.count > 0 {
             saveOperationDetails(duration: Int(miliSeconds), recordNumber: contents.count, operation: OperationType.Write, storage: StorageType.Couchbase)
-            
         }
+        completion()
 
     }
     

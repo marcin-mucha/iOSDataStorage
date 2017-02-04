@@ -17,12 +17,16 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var storageNameLabel: UILabel!
-
+    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var acitivityIndicator: UIActivityIndicatorView!
+    
     let serialQueue = DispatchQueue(label: "serial")
     let timer = Timer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureButtons()
         NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.storageNotification(notification:)), name: notificationName, object: nil)
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -41,6 +45,14 @@ class HomeViewController: UIViewController {
         self.repository = repository
     }
     
+    func configureButtons() {
+        [button, deleteButton].forEach({ but in
+            but?.layer.borderWidth = 1.0
+            but?.layer.cornerRadius = 5.0
+            but?.layer.borderColor = UIColor.blue.cgColor
+        })
+    }
+    
     @IBAction func valueDidChange(_ sender: Any) {
         let slider = sender as! UISlider
         slider.value = round(slider.value)
@@ -53,6 +65,7 @@ class HomeViewController: UIViewController {
     
     
     @IBAction func generate(_ sender: Any) {
+        acitivityIndicator.startAnimating()
         print("** Pobieranie \(slider.value * 200) rekordów rozpoczęte. ***")
         var tempContents = [Content]()
         apiClient.getContent(for: "pinkfloyd", limit: 200) {
@@ -71,9 +84,13 @@ class HomeViewController: UIViewController {
                 tempContents.append(contentsOf: contents)
             }
             DispatchQueue.main.sync {
-                safeSelf.repository?.save(contents: tempContents)
+                safeSelf.repository?.save(contents: tempContents) {
+                    DispatchQueue.main.async {
+                        self?.acitivityIndicator.stopAnimating()
+                        self?.hudMessage()
+                    }
+                }
             }
-            
         }
 
     }
@@ -84,6 +101,15 @@ class HomeViewController: UIViewController {
         }
         self.repository = repository
         
+    }
+    
+    func hudMessage() {
+        let hud = HudView.hud(in: (navigationController?.view)!, animated: true)
+        hud.text = "Zapisano"
+        let delayInSeconds = 0.6
+        DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) {
+            hud.removeFromSuperview()
+        }
     }
     
 

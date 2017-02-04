@@ -21,6 +21,7 @@
 		922DA46D1DCE39F700E68CDF /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922DA46A1DCE39F700E68CDF /* Realm.framework */; };
 		922DA46E1DCE39F700E68CDF /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922DA46B1DCE39F700E68CDF /* RealmSwift.framework */; };
 		922DA46F1DCE39F700E68CDF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922DA46C1DCE39F700E68CDF /* SwiftyJSON.framework */; };
+		9238F7D91E45FEE100EE0EBA /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9238F7D81E45FEE100EE0EBA /* HudView.swift */; };
 		923FE7F51E3CDA470075E8A4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923FE7F41E3CDA470075E8A4 /* HomeViewController.swift */; };
 		923FE7F71E3CDBB70075E8A4 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923FE7F61E3CDBB70075E8A4 /* GraphViewController.swift */; };
 		923FE7FA1E3D03270075E8A4 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923FE7F91E3D03270075E8A4 /* SettingsTableViewController.swift */; };
@@ -62,6 +63,7 @@
 		922DA46A1DCE39F700E68CDF /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "Pods/../build/Debug-iphoneos/Realm/Realm.framework"; sourceTree = "<group>"; };
 		922DA46B1DCE39F700E68CDF /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "Pods/../build/Debug-iphoneos/RealmSwift/RealmSwift.framework"; sourceTree = "<group>"; };
 		922DA46C1DCE39F700E68CDF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Pods/../build/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
+		9238F7D81E45FEE100EE0EBA /* HudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
 		923FE7F41E3CDA470075E8A4 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		923FE7F61E3CDBB70075E8A4 /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		923FE7F91E3D03270075E8A4 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				926DBF7C1DD76F2200951FEE /* Utils */,
 				9240B46A1E058E5500AB6179 /* iOSDataStorage-Bridging-Header.h */,
 				923FE7FB1E3D03320075E8A4 /* Settings */,
+				9238F7D81E45FEE100EE0EBA /* HudView.swift */,
 			);
 			path = iOSDataStorage;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				92B85FAB1DCF7F0B006D96BB /* ContentRepository.swift in Sources */,
 				923FE7F51E3CDA470075E8A4 /* HomeViewController.swift in Sources */,
 				92CA43971DE60BDF00751755 /* ContentRealm.swift in Sources */,
+				9238F7D91E45FEE100EE0EBA /* HudView.swift in Sources */,
 				921C55571DE380B600EB91CB /* ContentTableViewController.swift in Sources */,
 				9285CB971DBFCE4000A69FFF /* AppDelegate.swift in Sources */,
 				9220F09E1E3A345A009ECBB8 /* PersistanceOperation.swift in Sources */,

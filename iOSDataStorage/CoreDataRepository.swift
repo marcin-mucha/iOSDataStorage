@@ -33,7 +33,7 @@ class CoreDataRepository : ContentRepository {
     init(managedObjectContext: NSManagedObjectContext) {
         self.managedObjectContext = managedObjectContext
     }
-    func save(contents: [Content]) {
+    func save(contents: [Content], completion: @escaping () -> ()) {
         print("*** Rozpoczęto zapisywanie ***")
         let start = DispatchTime.now()
         for content in contents {
@@ -59,8 +59,8 @@ class CoreDataRepository : ContentRepository {
         print("*** Zapis zakończony: \(miliSeconds)***")
         if contents.count > 0 {
             saveOperationDetails(duration: Int(miliSeconds), recordNumber: contents.count, operation: OperationType.Write, storage: StorageType.CoreData)
-            
         }
+        completion()
 
 
     }

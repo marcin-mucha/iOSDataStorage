@@ -35,9 +35,7 @@
                             <constraint firstAttribute="trailing" secondItem="uGT-DP-HXd" secondAttribute="trailing" id="cY5-mO-4Ei"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Zawartość bazy" id="jyb-Ox-3g0">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="FGe-rp-IfQ"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Zawartość bazy" id="jyb-Ox-3g0"/>
                     <connections>
                         <outlet property="tableView" destination="uGT-DP-HXd" id="EDq-Eq-i7N"/>
                     </connections>
@@ -182,7 +180,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="500" translatesAutoresizingMaskIntoConstraints="NO" id="xKJ-22-h8K">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="xKJ-22-h8K">
                                 <rect key="frame" x="58" y="319" width="260" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Qd5-Mw-xHm"/>
@@ -193,19 +191,38 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcQ-CN-bXU">
-                                <rect key="frame" x="172" y="253" width="31" height="21"/>
+                                <rect key="frame" x="172" y="253.5" width="31" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5H-pH-3qc">
-                                <rect key="frame" x="59" y="487" width="256" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Pobierz i zapisz"/>
-                                <connections>
-                                    <action selector="generate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2e6-Nh-tkN"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="nZJ-wR-CvK">
+                                <rect key="frame" x="36" y="475" width="303" height="93"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5H-pH-3qc">
+                                        <rect key="frame" x="61.5" y="0.0" width="180" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="cYG-cc-777"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Pobierz i zapisz"/>
+                                        <connections>
+                                            <action selector="generate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2e6-Nh-tkN"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ldi-Tx-Oy7">
+                                        <rect key="frame" x="61.5" y="57" width="180" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Usuń wszystkie"/>
+                                        <connections>
+                                            <action selector="deleteAll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MWI-HT-Ztt"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="k5H-pH-3qc" firstAttribute="width" secondItem="Ldi-Tx-Oy7" secondAttribute="width" id="d5i-XZ-sek"/>
+                                </constraints>
+                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="200" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afV-0A-GTk">
                                 <rect key="frame" x="59" y="356" width="31" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -213,7 +230,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100 000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKc-wd-gMa">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10 000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKc-wd-gMa">
                                 <rect key="frame" x="273" y="356" width="66" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -228,37 +245,41 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wygeneruj obiekty do zapisu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxp-bo-clL">
-                                <rect key="frame" x="16" y="141" width="343" height="21"/>
+                                <rect key="frame" x="16" y="114" width="343" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(zapis)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2HV-8E-LJ4">
-                                <rect key="frame" x="158" y="180" width="52" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="153" y="152.5" width="62.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ldi-Tx-Oy7">
-                                <rect key="frame" x="46" y="547" width="283" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Usuń wszystkie"/>
-                                <connections>
-                                    <action selector="deleteAll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MWI-HT-Ztt"/>
-                                </connections>
-                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="yFG-Rn-syW">
+                                <rect key="frame" x="167" y="386" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="2bU-wx-tOo"/>
+                                    <constraint firstAttribute="width" constant="40" id="9KJ-Rw-YZb"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="gxp-bo-clL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="77" id="BpX-6I-bqP"/>
+                            <constraint firstItem="gxp-bo-clL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="BpX-6I-bqP"/>
                             <constraint firstItem="xKJ-22-h8K" firstAttribute="top" secondItem="gcQ-CN-bXU" secondAttribute="bottom" constant="44.5" id="DWz-1A-qOF"/>
                             <constraint firstItem="xKJ-22-h8K" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DoS-Iy-2LI"/>
+                            <constraint firstItem="yFG-Rn-syW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EYC-ed-PjF"/>
                             <constraint firstItem="gcQ-CN-bXU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GGf-X7-WfM"/>
                             <constraint firstItem="xKJ-22-h8K" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="JMC-ow-RXF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gxp-bo-clL" secondAttribute="trailing" id="Tge-LA-wLn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nZJ-wR-CvK" secondAttribute="trailing" constant="20" id="fze-rS-kZe"/>
                             <constraint firstItem="2HV-8E-LJ4" firstAttribute="top" secondItem="gxp-bo-clL" secondAttribute="bottom" constant="18" id="ghh-NJ-b2v"/>
                             <constraint firstItem="2HV-8E-LJ4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-3.5" id="pTt-Gb-VZs"/>
+                            <constraint firstItem="nZJ-wR-CvK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="wRF-VV-ffI"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="nZJ-wR-CvK" secondAttribute="bottom" constant="50" id="wiD-5i-tSt"/>
                             <constraint firstItem="gxp-bo-clL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xyH-kK-m1i"/>
+                            <constraint firstItem="k5H-pH-3qc" firstAttribute="top" secondItem="yFG-Rn-syW" secondAttribute="bottom" constant="49" id="yQV-0K-PpC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="iOS Data Storage Project" id="hBb-r1-QPk">
@@ -269,6 +290,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="acitivityIndicator" destination="yFG-Rn-syW" id="tM8-bJ-hTS"/>
+                        <outlet property="button" destination="k5H-pH-3qc" id="N84-lX-Izx"/>
+                        <outlet property="deleteButton" destination="Ldi-Tx-Oy7" id="asZ-Kh-h2q"/>
                         <outlet property="numberLabel" destination="gcQ-CN-bXU" id="SGG-rJ-agA"/>
                         <outlet property="slider" destination="xKJ-22-h8K" id="V9U-LG-B0V"/>
                         <outlet property="storageNameLabel" destination="2HV-8E-LJ4" id="9kC-y0-DZ0"/>

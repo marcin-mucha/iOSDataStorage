@@ -12,7 +12,7 @@ import RealmSwift
 protocol ContentRepository {
     var contents: [Content] { get }
     var dataStorageName: String { get }
-    func save(contents: [Content])
+    func save(contents: [Content], completion: @escaping ()->())
     func deleteAll()
     func saveOperationDetails(duration: Int, recordNumber: Int,
                               operation: OperationType, storage: StorageType)

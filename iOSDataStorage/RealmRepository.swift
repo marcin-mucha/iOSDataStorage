@@ -28,7 +28,7 @@ class RealmRepository: ContentRepository {
         return mappedContents
     }
     let dataStorageName = "Realm"
-    func save(contents: [Content]) {
+    func save(contents: [Content], completion: @escaping ()->()) {
         DispatchQueue(label: "Realm").async {
             print("*** Rozpoczęto zapisywanie ***")
             
@@ -62,7 +62,7 @@ class RealmRepository: ContentRepository {
                     self.saveOperationDetails(duration: Int(miliSeconds), recordNumber: contents.count, operation: OperationType.Write, storage: StorageType.Realm)
                     
                 }
-
+                completion()
             }
             
         }
